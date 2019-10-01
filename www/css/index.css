@@ -17,12 +17,12 @@
  * under the License.
  */
 @font-face {
-    font-family: "PoiretOne-Regular";
-    src: url("assets/fonts/PoiretOne-Regular.ttf");
+    font-family: poiret;
+    src: local("assets/fonts/PoiretOne-Regular.ttf");
 }
 
 .class-myfont {
-    font-family: "PoiretOne-Regular", Arial;
+    font-family: poiret, Arial, serif;
 }
 
 * {
@@ -151,13 +151,11 @@ h1 {
 }
 
 #guest-welcome {
-    background: #b8dfdc;
-    font-family: "PoiretOne-Regular", Arial;
-    color: #FFFFFF;
+    font-family: "poiret", Arial, serif;
+    color: #000000;
 }
 
 #google-welcome {
-    background: #517c72;
-    font-family: "PoiretOne-Regular", Arial;
-    color: #FFFFFF;
+    font-family: "poiret", Arial, serif;
+    color: #000000;
 }
