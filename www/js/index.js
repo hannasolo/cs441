@@ -17,6 +17,10 @@
  * under the License.
  */
 $(document).ready(function () {
+    var admin = require("firebase-admin");
+    var serviceAccount = require("path/to/serviceAccountKey.json");
+
+    const auth  = firebase.auth();
     var guestButton = $("#guest-button");
     var googleButton = $("#google-button");
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -24,6 +28,10 @@ $(document).ready(function () {
     require("firebase/auth");
     require("firebase/firestore");
 
+    admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+        databaseURL: "https://drungry.firebaseio.com"
+    });
 
    guestButton.click(function () {
         $("#index").hide();
@@ -31,35 +39,37 @@ $(document).ready(function () {
    });
 
     googleButton.click( function () {
-        firebase.auth().signInWithRedirect(provider).then(function () {
-            return firebase.auth().getRedirectResult();
-        }).then(function (result) {
-            // This gives you a Google Access Token.
-            // You can use it to access the Google API.
-            var token = result.credential.accessToken;
-            // The signed-in user info.
-            var user = result.user;
-            showGoogleHome();
-        }).catch(function (error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-        });
-
-        firebase.auth().getRedirectResult().then(function (result) {
-            if (result.credential) {
-                // This gives you a Google Access Token.
-                // You can use it to access the Google API.
-                var token = result.credential.accessToken;
-                // The signed-in user info.
-                var user = result.user;
-                // ...
-            }
-        }).catch(function (error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-        });
+        firebase.auth().signInWithEmailAndPassword;
+        showGoogleHome();
+        // firebase.auth().signInWithRedirect(provider).then(function () {
+        //     return firebase.auth().getRedirectResult();
+        // }).then(function (result) {
+        //     // This gives you a Google Access Token.
+        //     // You can use it to access the Google API.
+        //     var token = result.credential.accessToken;
+        //     // The signed-in user info.
+        //     var user = result.user;
+        //     showGoogleHome();
+        // }).catch(function (error) {
+        //     // Handle Errors here.
+        //     var errorCode = error.code;
+        //     var errorMessage = error.message;
+        // });
+        //
+        // firebase.auth().getRedirectResult().then(function (result) {
+        //     if (result.credential) {
+        //         // This gives you a Google Access Token.
+        //         // You can use it to access the Google API.
+        //         var token = result.credential.accessToken;
+        //         // The signed-in user info.
+        //         var user = result.user;
+        //         // ...
+        //     }
+        // }).catch(function (error) {
+        //     // Handle Errors here.
+        //     var errorCode = error.code;
+        //     var errorMessage = error.message;
+        // });
     });
 
     function showGoogleHome() {

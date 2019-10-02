@@ -5,10 +5,12 @@ var firebaseConfig = {
     databaseUrl: "https://drungry.firebaseio.com",
     projectId: "drungry",
     storageBucket: "drungry.appspot.com",
-    messagingSenderId: "sender-id",
-    appId: "app-id",
-    measurementId: "G-measurement-id",
+    messagingSenderId: "667199072525",
+    appId: "1:667199072525:android:d43946d7ce52c01ec26844",
+    // measurementId: "G-measurement-id",
 };
+
+
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
