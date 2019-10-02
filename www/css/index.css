@@ -121,22 +121,15 @@ h1 {
     margin-bottom: 5px;
 }
 
-/*#g-signin2 {*/
-/*    background: #FBAB57;*/
-/*    color: #ffffff;*/
-/*    height: 40px;*/
-/*    width: 150px;*/
-/*    border-radius: 10px;*/
-/*    padding: 10px;*/
-/*}*/
-
-.abcRioButtonLightBlue {
-    background-color: #FBAB57;
-    color: #FFFFFFFF;
-    border-radius: 5px;
-    text-align: center;
-    margin-left: 52px;
+#google-button {
+    background: #FBAB57;
+    color: #ffffff;
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    padding: 10px;
 }
+
 
 #logo {
     height: 200px;

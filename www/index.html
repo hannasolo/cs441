@@ -45,7 +45,8 @@
                       <img src="img/cocktailCake.png" id="logo">
                   </picture>
                   <button type="submit" id="guest-button">Sign in as Guest</button>
-                  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                  <button type="submit" id="google-button">Sign in with Google</button>
+<!--                  <div class="g-signin2" data-onsuccess="onSignIn"></div>-->
               </div>
             </div>
 
@@ -72,6 +73,11 @@
             </div>
         </div>
 <!--        <script type="text/javascript" src="cordova.js"></script>-->
+        <script defer src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/7.0.0/firebase-auth.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
+        <!-- Initialize Firebase -->
+        <script defer src="./init-firebase.js"></script>
         <script type="text/javascript" src="js/jquery-1.4.5.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script type="text/javascript" src="js/index.js"></script>

@@ -28,11 +28,11 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="google-signin-client_id" content="667199072525-8hesst0ru9rm6te06lrcai9h8st1gejq.apps.googleusercontent.com" >
+<!--        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <meta name="google-signin-client_id" content="667199072525-903adcdsvn2k4k24q9po14df2kgh88al.apps.googleusercontent.com.apps.googleusercontent.com">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Hello World</title>
     </head>
@@ -45,31 +45,39 @@
                       <img src="img/cocktailCake.png" id="logo">
                   </picture>
                   <button type="submit" id="guest-button">Sign in as Guest</button>
-                  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                  <button type="submit" id="google-button">Sign in with Google</button>
+<!--                  <div class="g-signin2" data-onsuccess="onSignIn"></div>-->
               </div>
             </div>
 
             <!--GUEST WELCOME SCREEN-->
-            <div id="guest-welcome" class="page">
+            <div id="guest-welcome" class="page" style="display:none">
                 <div id="unauth-welcome-container">
                     <picture>
                         <img src="img/wine.png" id="unauth-logo">
                     </picture>
                     <p>Welcome Guest.</p>
+                    <a href="index.html">Sign out</a>
                 </div>
             </div>
 
             <!--GOOGLE USER WELCOME SCREEN-->
-            <div id="google-welcome" class="page">
+            <div id="google-welcome" class="page" style="display:none">
                 <div id="auth-welcome-container">
                     <picture>
                         <img src="img/margarita.png" id="auth-logo">
                     </picture>
                     <p>Welcome Google User.</p>
+                    <a href="index.html" onclick="signOut();">Sign out</a>
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
+<!--        <script type="text/javascript" src="cordova.js"></script>-->
+        <script defer src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/7.0.0/firebase-auth.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
+        <!-- Initialize Firebase -->
+        <script defer src="./init-firebase.js"></script>
         <script type="text/javascript" src="js/jquery-1.4.5.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script type="text/javascript" src="js/index.js"></script>

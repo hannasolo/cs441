@@ -7,7 +7,19 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-plugin-browsertab": {
+      "PACKAGE_NAME": "com.hannalynn.drungry"
+    },
+    "cordova-plugin-buildinfo": {
+      "PACKAGE_NAME": "com.hannalynn.drungry"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.hannalynn.drungry"
+    },
     "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.hannalynn.drungry"
+    },
+    "cordova-universal-links-plugin": {
       "PACKAGE_NAME": "com.hannalynn.drungry"
     }
   },

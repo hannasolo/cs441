@@ -18,22 +18,49 @@
  */
 $(document).ready(function () {
     var guestButton = $("#guest-button");
+    var googleButton = $("#google-button");
+    var provider = new firebase.auth.GoogleAuthProvider();
+    var firebase = require("firebase/app");
+    require("firebase/auth");
+    require("firebase/firestore");
+
 
    guestButton.click(function () {
         $("#index").hide();
         $("#guest-welcome").show();
+   });
+
+    googleButton.click( function () {
+        firebase.auth().signInWithRedirect(provider).then(function () {
+            return firebase.auth().getRedirectResult();
+        }).then(function (result) {
+            // This gives you a Google Access Token.
+            // You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            showGoogleHome();
+        }).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+        });
+
+        firebase.auth().getRedirectResult().then(function (result) {
+            if (result.credential) {
+                // This gives you a Google Access Token.
+                // You can use it to access the Google API.
+                var token = result.credential.accessToken;
+                // The signed-in user info.
+                var user = result.user;
+                // ...
+            }
+        }).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+        });
     });
-
-   function onSignIn(googleUser) {
-        var profile = googleUser.getBasicProfile();
-
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-
-       showGoogleHome();
-    }
 
     function showGoogleHome() {
         $("#index").hide();
@@ -50,31 +77,3 @@ $(document).ready(function () {
         });
     }
 });
-// var app = {
-//     // Application Constructor
-//     initialize: function() {
-//         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-//     },
-//
-//     // deviceready Event Handler
-//     // Bind any cordova events here. Common events are:
-//     // 'pause', 'resume', etc.
-//
-//     onDeviceReady: function() {
-//         this.receivedEvent('deviceready');
-//     },
-//
-//     // Update DOM on a Received Event
-//     receivedEvent: function(id) {
-//         var parentElement = document.getElementById(id);
-//         var listeningElement = parentElement.querySelector('.listening');
-//         var receivedElement = parentElement.querySelector('.received');
-//
-//         listeningElement.setAttribute('style', 'display:none;');
-//         receivedElement.setAttribute('style', 'display:block;');
-//
-//         console.log('Received Event: ' + id);
-//     }
-// };
-//
-// app.initialize();
