@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc3b9df2-ffda-412f-83bb-96e4e7115af5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Drungry.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Drungry.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cordova-android/framework/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cordova-android/framework/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/init-firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/init-firebase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/css/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +55,7 @@
       <workItem from="1568850394370" duration="1681000" />
       <workItem from="1569865878678" duration="2381000" />
       <workItem from="1569868673266" duration="10097000" />
-      <workItem from="1569887675254" duration="14314000" />
+      <workItem from="1569887675254" duration="15283000" />
     </task>
     <servers />
   </component>
