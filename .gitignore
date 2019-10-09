@@ -1,3 +1,4 @@
+
 # Mac
 .DS_Store
 
@@ -15,3 +16,7 @@ jsconfig.json
 .vscode/
 typings/
 .idea/
+
+# python
+*.pyc
+env
