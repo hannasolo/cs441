@@ -14,6 +14,7 @@
 
 # [START app]
 import logging
+import MySQLdb
 
 from flask import Flask
 
