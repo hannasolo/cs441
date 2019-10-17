@@ -13,23 +13,34 @@ class dbHandler:
     def setupDB(self, fileName):
 
     #used by queries coming into flask, this one is to search for a specific Food Recipe
+    #returns a json with the name, ingredients, steps, link for the image
     def getFoodRecipe(recipeName):
 
     #used by queries to search for a specific Drink Recipe
+    #returns a json with the name, ingredients, steps, link for the image
     def getDrinkRecipe(self):
 
+
+
     #general search using a keyword, will return a list of Food Recipes
+    #list of recipes will be in json format
     def searchFoods(foodWord):
 
     # general search using a keyword, will return a list of Drink Recipes
+    #list of recipes will be in json format
     def searchDrinks(drinkWord):
 
-    #queries the db to get a food recipe, but only returns the image of the food recipe
+
+
+    #queries the db to get a food recipe, but only returns the link to the image of the food recipe
     def getFoodImage():
 
-    # queries the db to get a drink recipe, but only returns the image of the drink recipe
+        return foodImageLink
+
+    # queries the db to get a drink recipe, but only returns the link to image of the drink recipe
     def getDrinkImage():
 
+        return drinkImageLink
 
 
 
