@@ -1,5 +1,10 @@
+# Files from PyCharm
 .idea
+
+# Virtual environment
 venv
 __pycache__
+
+# Secrets
 secrets.json
 secrets_gae.json
