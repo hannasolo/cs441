@@ -35,3 +35,12 @@ def users():
 
     return str(rv)
 
+
+@app.route('/test/<int:id>', methods=['GET'])
+def example(id):
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT * FROM mock_table WHERE table_id={}'.format(id))
+    rv = cur.fetchall()
+
+    return str(rv)
+
