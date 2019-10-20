@@ -18,27 +18,12 @@ import MySQLdb
 
 from flask import Flask
 
-db = None
 
-def serverSetup():
-    # Connect to database
-    db = MySQLdb.connect(host="localhost",  # your host, usually localhost
-                         user="root",  # your username
-                         passwd="test123",  # your password
-                         db="main")  # name of the data base
+app = Flask(__name__)
 
-    return Flask(__name__)
-
-
-app = serverSetup()
 
 @app.route('/')
 def hello():
-    cur = db.cursor()
-    cur.execute("SELECT * FROM main_members")
-
-    for row in cur.fetchall():
-        print row[0]
     return 'Hello World!'
 
 
