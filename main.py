@@ -27,6 +27,23 @@ mysql = MySQL(app)
 =========================================================
 '''
 
+'''
+=========================================================
+                    FLASK ROUTES
+                     API VER 1
+=========================================================
+'''
+
+# Drink recipe Search
+'''
+@Purpose: Searches the database for specific drink
+@Params:    params      [UNSIGNED INT]      Specifies specific return results.
+            names       [STRING]            Search for specific name.
+            results     [UNSIGNED INT]      Specifies number of return results.
+            tags        [STRING]            Searches recipes with specific tags.
+
+@Example: {{base_url}}/recipes_food/?params={{params}}&searchName={{names}}&results={{results}}&tags={{tags}}
+'''
 
 '''
 =========================================================
@@ -56,6 +73,3 @@ def users():
     rv = cur.fetchall()
 
     return str(rv)
-
-
-
