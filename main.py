@@ -13,9 +13,9 @@ app = Flask(__name__)
 
 # Grab login credentials for CloudSQL
 if os.environ.get('GAE_ENV'):
-    app.config.from_json('secrets.json')
-else:
     app.config.from_json('secrets_gae.json')
+else:
+    app.config.from_json('secrets.json')
 
 # MySQL Entry Point
 mysql = MySQL(app)
@@ -27,6 +27,28 @@ mysql = MySQL(app)
 =========================================================
 '''
 
+
+'''
+=========================================================
+                    FLASK ROUTES
+                    TEST DATABASE
+=========================================================
+'''
+
+'''
+@Purpose: This is an example route for a get function
+@Example: {{url}}/test/{{id}}
+@Result: Returns a tuple of ({{id}}, {{name}}, {{last_name}})
+'''
+@app.route('/test/<int:id>', methods=['GET'])
+def example(id):
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT * FROM mock_table WHERE table_id={}'.format(id))
+    rv = cur.fetchall()
+
+    return str(rv)
+
+
 @app.route('/')
 def users():
     cur = mysql.connection.cursor()
@@ -36,11 +58,4 @@ def users():
     return str(rv)
 
 
-@app.route('/test/<int:id>', methods=['GET'])
-def example(id):
-    cur = mysql.connection.cursor()
-    cur.execute('SELECT * FROM mock_table WHERE table_id={}'.format(id))
-    rv = cur.fetchall()
-
-    return str(rv)
 
