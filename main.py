@@ -12,7 +12,7 @@ import os
 app = Flask(__name__)
 
 # Grab login credentials for CloudSQL
-if os.environ.get('GAE_ENV') == None:
+if os.environ.get('GAE_ENV'):
     app.config.from_json('secrets.json')
 else:
     app.config.from_json('secrets_gae.json')
