@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_mysqldb import MySQL
 import os
 
@@ -19,6 +19,7 @@ else:
 
 # MySQL Entry Point
 mysql = MySQL(app)
+_API_VERSION_ = 1
 
 '''
 =========================================================
@@ -37,13 +38,31 @@ mysql = MySQL(app)
 # Drink recipe Search
 '''
 @Purpose: Searches the database for specific drink
-@Params:    params      [UNSIGNED INT]      Specifies specific return results.
-            names       [STRING]            Search for specific name.
-            results     [UNSIGNED INT]      Specifies number of return results.
+@Params:    names       [STRING]            Search for specific name.
             tags        [STRING]            Searches recipes with specific tags.
-
-@Example: {{base_url}}/recipes_food/?params={{params}}&searchName={{names}}&results={{results}}&tags={{tags}}
+            results     [UNSIGNED INT]      Specifies number of return results.
+@Return: Returns drink(s) information
+@Example: {{base_url}}/recipes_food/search/?params={{params}}&searchName={{names}}&results={{results}}&tags={{tags}}
 '''
+@app.route('/apiv{}/recipes_drink/search'.format(_API_VERSION_), methods=['GET'])
+def drink_search():
+    if request.method == 'GET':
+        names = request.args.get('searchname', default='', type=str)
+        tags = request.args.get('tags', default=None, type=str)
+        results = request.args.get('results', default=10, type=int)
+
+        cur = mysql.connect.cursor()
+        cur.execute('''
+        SELECT * FROM drinkrecipes 
+        WHERE name LIKE '%{}%';
+        '''.format(names, tags))
+
+        rv = cur.fetchall()
+
+        return str(rv)
+
+    pass
+
 
 '''
 =========================================================
