@@ -52,16 +52,15 @@ def drink_search():
         results = request.args.get('results', default=10, type=int)
 
         cur = mysql.connect.cursor()
+
         cur.execute('''
         SELECT * FROM drinkrecipes 
-        WHERE name LIKE '%{}%';
-        '''.format(names, tags))
+        WHERE name LIKE '%{}%' AND (tags LIKE '%{}%')
+        LIMIT {};
+        '''.format(names, tags, results))
 
         rv = cur.fetchall()
-
         return str(rv)
-
-    pass
 
 
 '''
