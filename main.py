@@ -42,13 +42,13 @@ _API_VERSION_ = 1
             tags        [STRING]            Searches recipes with specific tags.
             results     [UNSIGNED INT]      Specifies number of return results.
 @Return: Returns drink(s) information
-@Example: {{base_url}}/recipes_food/search/?params={{params}}&searchName={{names}}&results={{results}}&tags={{tags}}
+@Example: {{base_url}}/recipe_drink/search/?params={{params}}&searchName={{names}}&results={{results}}&tags={{tags}}
 '''
 @app.route('/apiv{}/recipes_drink/search'.format(_API_VERSION_), methods=['GET'])
 def drink_search():
     if request.method == 'GET':
         names = request.args.get('searchname', default='', type=str)
-        tags = request.args.get('tags', default=None, type=str)
+        tags = request.args.get('tags', default='_', type=str)
         results = request.args.get('results', default=10, type=int)
 
         cur = mysql.connect.cursor()
