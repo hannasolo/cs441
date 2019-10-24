@@ -48,7 +48,7 @@ _API_VERSION_ = 1
 def drink_search():
     if request.method == 'GET':
         names = request.args.get('searchname', default='', type=str)
-        tags = request.args.get('tags', default='_', type=str)
+        tags = request.args.get('tags', default='', type=str)
         results = request.args.get('results', default=10, type=int)
 
         cur = mysql.connect.cursor()
