@@ -64,6 +64,8 @@ def drink_search():
         LIMIT {};
         '''.format(names, results))
 
+
+        #TODO: Add tags support
         '''
         AND (tags LIKE '%{}%')
         '''
