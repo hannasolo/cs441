@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_mysqldb import MySQL
 import os
 
@@ -44,6 +44,8 @@ _API_VERSION_ = 1
 @Return: Returns drink(s) information
 @Example:{{base_url}}/recipes_drink/search/?params={{params}}&searchName={{names}}&results={{results}}&tags={{tags}}
 '''
+
+
 @app.route('/apiv{}/recipes_drink/search'.format(_API_VERSION_), methods=['GET'])
 def drink_search():
     if request.method == 'GET':
@@ -51,20 +53,32 @@ def drink_search():
         tags = request.args.get('tags', default='', type=str)
         results = request.args.get('results', default=10, type=int)
 
+        names_json = ('id', 'name', 'steps_url', 'ratings', 'image_url')
+        json_response = {'recipes': []}
+
         cur = mysql.connect.cursor()
 
         cur.execute('''
         SELECT * FROM drinkrecipes 
-        WHERE name LIKE '%{}%' AND (tags LIKE '%{}%')
+        WHERE name LIKE '%{}%' 
         LIMIT {};
-        '''.format(names, tags, results))
+        '''.format(names, results))
+
+        '''
+        AND (tags LIKE '%{}%')
+        '''
 
         rv = cur.fetchall()
-        return str(rv)
+
+        for recipe in rv:
+            json_response['recipes'].append(
+                dict(zip(names_json, recipe)))
+
+        return jsonify(json_response)
 
     # Food recipe Search
     '''
-    @Purpose: Searches the database for specific drink
+    @Purpose: Searches the database for specific food
     @Params:    names       [STRING]            Search for specific name.
                 tags        [STRING]            Searches recipes with specific tags.
                 results     [UNSIGNED INT]      Specifies number of return results.
@@ -90,7 +104,6 @@ def drink_search():
             rv = cur.fetchall()
             return str(rv)
 
-
     # Get Food Recipe
     '''
     @Purpose: Retrieves a specific recipe based on name or ID
@@ -112,6 +125,7 @@ def drink_search():
             rv = cur.fetchall()
             return str(rv)
 
+
 '''
 =========================================================
                     FLASK ROUTES
@@ -124,6 +138,8 @@ def drink_search():
 @Example: {{url}}/test/{{id}}
 @Result: Returns a tuple of ({{id}}, {{name}}, {{last_name}})
 '''
+
+
 @app.route('/test/<int:id>', methods=['GET'])
 def example(id):
     cur = mysql.connection.cursor()
