@@ -86,6 +86,8 @@ def drink_search():
             json_response['recipes'].append(
                 dict(zip(names_json, recipe)))
 
+        cur.close()
+
         return jsonify(json_response)
 
 
