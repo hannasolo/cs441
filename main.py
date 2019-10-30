@@ -38,16 +38,16 @@ _API_VERSION_ = 1
 # Drink recipe Search
 '''
 @Purpose: Searches the database for specific drink
-@Params:    names       [STRING]            Search for specific name.
+@Params:    name        [STRING]            Search for specific name.
             tags        [STRING]            Searches recipes with specific tags.
             results     [UNSIGNED INT]      Specifies number of return results.
 @Return: Returns drink(s) information
-@Example:{{base_url}}/recipes_drink/search/?params={{params}}&searchName={{names}}&results={{results}}&tags={{tags}}
+@Example:{{base_url}}/recipes_drink/search/?params={{params}}&searchName={{name}}&results={{results}}&tags={{tags}}
 '''
 @app.route('/apiv{}/recipes_drink/search'.format(_API_VERSION_), methods=['GET'])
 def drink_search():
     if request.method == 'GET':
-        names = request.args.get('searchname', default='', type=str)
+        name = request.args.get('searchname', default='', type=str)
         tags = request.args.get('tags', default='', type=str)
         results = request.args.get('results', default=10, type=int)
 
@@ -67,7 +67,7 @@ def drink_search():
         SELECT DISTINCT dr.drinkrecipe_id, dr.name, steps, ratings, image_url FROM drinkrecipes dr
         INNER JOIN drinkrecipestags drt ON dr.drinkrecipe_id = drt.drinkrecipe_id
         INNER JOIN tags t ON t.tag_id = drt.tag_id
-        WHERE dr.name LIKE '%{names}%'{tags}LIMIT {results};
+        WHERE dr.name LIKE '%{name}%'{tags}LIMIT {results};
         ''')
 
         rv = cur.fetchall()
@@ -86,16 +86,16 @@ def drink_search():
 # Food recipe Search
 '''
 @Purpose: Searches the database for specific food
-@Params:    names       [STRING]            Search for specific name.
+@Params:    name        [STRING]            Search for specific name.
             tags        [STRING]            Searches recipes with specific tags.
             results     [UNSIGNED INT]      Specifies number of return results.
 @Return: Returns food(s) information
-@Example: {{base_url}}/recipes_food/search/?params={{params}}&searchName={{names}}&results={{results}}&tags={{tags}}
+@Example: {{base_url}}/recipes_food/search/?params={{params}}&searchName={{name}}&results={{results}}&tags={{tags}}
 '''
 @app.route('/apiv{}/recipes_food/search'.format(_API_VERSION_), methods=['GET'])
 def food_search():
     if request.method == 'GET':
-        names = request.args.get('searchname', default='', type=str)
+        name = request.args.get('searchname', default='', type=str)
         tags = request.args.get('tags', default=None, type=str)
         results = request.args.get('results', default=10, type=int)
 
@@ -105,7 +105,7 @@ def food_search():
         SELECT * FROM foodrecipes 
         WHERE name LIKE '%{}%' AND (tags LIKE '%{}%')
         LIMIT {};
-        '''.format(names, tags, results))
+        '''.format(name, tags, results))
 
         rv = cur.fetchall()
         return str(rv)
