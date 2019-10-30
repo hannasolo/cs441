@@ -20,7 +20,6 @@ else:
 # MySQL Entry Point
 mysql = MySQL(app)
 _API_VERSION_ = 1
-
 '''
 =========================================================
                     FLASK ROUTES
@@ -34,6 +33,13 @@ _API_VERSION_ = 1
                      API VER 1
 =========================================================
 '''
+# Post data to drink database
+@app.route(f'/apiv{_API_VERSION_}/recipes_drink', methods=['POST'])
+def recipes_drink():
+    if request.method == 'POST':
+        pass
+        
+
 
 # Drink recipe Search
 '''
@@ -42,7 +48,7 @@ _API_VERSION_ = 1
             tags        [STRING]            Searches recipes with specific tags.
             results     [UNSIGNED INT]      Specifies number of return results.
 @Return: Returns drink(s) information
-@Example:{{base_url}}/recipes_drink/search/?params={{params}}&searchName={{name}}&results={{results}}&tags={{tags}}
+@Example:{{base_url}}/recipes_drink/search?params={{params}}&searchName={{name}}&results={{results}}&tags={{tags}}
 '''
 @app.route('/apiv{}/recipes_drink/search'.format(_API_VERSION_), methods=['GET'])
 def drink_search():
