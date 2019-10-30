@@ -44,8 +44,6 @@ _API_VERSION_ = 1
 @Return: Returns drink(s) information
 @Example:{{base_url}}/recipes_drink/search/?params={{params}}&searchName={{names}}&results={{results}}&tags={{tags}}
 '''
-
-
 @app.route('/apiv{}/recipes_drink/search'.format(_API_VERSION_), methods=['GET'])
 def drink_search():
     if request.method == 'GET':
@@ -55,6 +53,7 @@ def drink_search():
 
         cur = mysql.connect.cursor()
 
+        # Check if the tags parameter has been passed in
         if len(tags) != 0:
             tags = tags.split(',')
             query_tags = [' AND (']
@@ -83,54 +82,54 @@ def drink_search():
 
         return jsonify(json_response)
 
-    # Food recipe Search
-    '''
-    @Purpose: Searches the database for specific food
-    @Params:    names       [STRING]            Search for specific name.
-                tags        [STRING]            Searches recipes with specific tags.
-                results     [UNSIGNED INT]      Specifies number of return results.
-    @Return: Returns food(s) information
-    @Example: {{base_url}}/recipes_food/search/?params={{params}}&searchName={{names}}&results={{results}}&tags={{tags}}
-    '''
 
-    @app.route('/apiv{}/recipes_food/search'.format(_API_VERSION_), methods=['GET'])
-    def food_search():
-        if request.method == 'GET':
-            names = request.args.get('searchname', default='', type=str)
-            tags = request.args.get('tags', default=None, type=str)
-            results = request.args.get('results', default=10, type=int)
+# Food recipe Search
+'''
+@Purpose: Searches the database for specific food
+@Params:    names       [STRING]            Search for specific name.
+            tags        [STRING]            Searches recipes with specific tags.
+            results     [UNSIGNED INT]      Specifies number of return results.
+@Return: Returns food(s) information
+@Example: {{base_url}}/recipes_food/search/?params={{params}}&searchName={{names}}&results={{results}}&tags={{tags}}
+'''
+@app.route('/apiv{}/recipes_food/search'.format(_API_VERSION_), methods=['GET'])
+def food_search():
+    if request.method == 'GET':
+        names = request.args.get('searchname', default='', type=str)
+        tags = request.args.get('tags', default=None, type=str)
+        results = request.args.get('results', default=10, type=int)
 
-            cur = mysql.connect.cursor()
+        cur = mysql.connect.cursor()
 
-            cur.execute('''
-            SELECT * FROM foodrecipes 
-            WHERE name LIKE '%{}%' AND (tags LIKE '%{}%')
-            LIMIT {};
-            '''.format(names, tags, results))
+        cur.execute('''
+        SELECT * FROM foodrecipes 
+        WHERE name LIKE '%{}%' AND (tags LIKE '%{}%')
+        LIMIT {};
+        '''.format(names, tags, results))
 
-            rv = cur.fetchall()
-            return str(rv)
+        rv = cur.fetchall()
+        return str(rv)
 
-    # Get Food Recipe
-    '''
-    @Purpose: Retrieves a specific recipe based on name or ID
-    @Params:    name       [STRING]            Search for specific name.
-    @Return: Returns food information
-    @Example: {{base_url}}/recipes_food/get/?params={{params}}&id={{name}}
-    '''
 
-    @app.route('/apiv{}/recipes_food/get'.format(_API_VERSION_), methods=['GET'])
-    def get_food():
-        if request.method == 'GET':
-            id = request.args.get('id', default='', type=str)
-            cur = mysql.connect.cursor()
-            cur.execute('''
-            SELECT * FROM foodrecipes 
-            WHERE foodrecipe_id LIKE '%{}%')
-            '''.format(id))
+# Get Food Recipe
+'''
+@Purpose: Retrieves a specific recipe based on name or ID
+@Params:    name       [STRING]            Search for specific name.
+@Return: Returns food information
+@Example: {{base_url}}/recipes_food/get/?params={{params}}&id={{name}}
+'''
+@app.route('/apiv{}/recipes_food/get'.format(_API_VERSION_), methods=['GET'])
+def get_food():
+    if request.method == 'GET':
+        id = request.args.get('id', default='', type=str)
+        cur = mysql.connect.cursor()
+        cur.execute('''
+        SELECT * FROM foodrecipes 
+        WHERE foodrecipe_id LIKE '%{}%')
+        '''.format(id))
 
-            rv = cur.fetchall()
-            return str(rv)
+        rv = cur.fetchall()
+        return str(rv)
 
 
 '''
