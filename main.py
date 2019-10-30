@@ -53,24 +53,30 @@ def drink_search():
         tags = request.args.get('tags', default='', type=str)
         results = request.args.get('results', default=10, type=int)
 
-        names_json = ('id', 'name', 'steps_url', 'ratings', 'image_url')
-        json_response = {'recipes': []}
-
         cur = mysql.connect.cursor()
 
-        cur.execute('''
-        SELECT * FROM drinkrecipes 
-        WHERE name LIKE '%{}%' 
-        LIMIT {};
-        '''.format(names, results))
+        if len(tags) != 0:
+            tags = tags.split(',')
+            query_tags = []
+            query_tags.append(' AND (')
 
+            for item in tags:
+                query_tags.append(f't.name LIKE \'%{item}%\' OR ')
 
-        #TODO: Add tags support
-        '''
-        AND (tags LIKE '%{}%')
-        '''
+            tags = ' '.join(query_tags)[:-3] + ') '
+
+        cur.execute(f'''
+        SELECT DISTINCT dr.drinkrecipe_id, dr.name, steps, ratings, image_url FROM drinkrecipes dr
+        INNER JOIN drinkrecipestags drt ON dr.drinkrecipe_id = drt.drinkrecipe_id
+        INNER JOIN tags t ON t.tag_id = drt.tag_id
+        WHERE dr.name LIKE '%{names}%'{tags}LIMIT {results};
+        ''')
 
         rv = cur.fetchall()
+
+        # Formatting for the JSON response
+        names_json = ('id', 'name', 'steps_url', 'ratings', 'image_url')
+        json_response = {'recipes': []}
 
         for recipe in rv:
             json_response['recipes'].append(
