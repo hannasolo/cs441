@@ -67,7 +67,7 @@ def drink_search():
             for item in tags:
                 query_tags.append(f't.name LIKE \'%{item}%\' OR ')
 
-            tags = ' '.join(query_tags)[:-3] + ') '
+            tags = ''.join(query_tags)[:-3] + ') '
 
         cur.execute(f'''
         SELECT DISTINCT dr.drinkrecipe_id, dr.name, steps, ratings, image_url FROM drinkrecipes dr
