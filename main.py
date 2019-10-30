@@ -57,8 +57,7 @@ def drink_search():
 
         if len(tags) != 0:
             tags = tags.split(',')
-            query_tags = []
-            query_tags.append(' AND (')
+            query_tags = [' AND (']
 
             for item in tags:
                 query_tags.append(f't.name LIKE \'%{item}%\' OR ')
