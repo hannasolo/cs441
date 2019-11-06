@@ -1,43 +1,17 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-<!--        <meta name="google-signin-client_id" content="667199072525-8hesst0ru9rm6te06lrcai9h8st1gejq.apps.googleusercontent.com" >-->
-<!--        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="667199072525-h7t5lh3t13fdbg2p8mn7huhed9fkj3tp.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
-        <title>Drungry</title>
+<!--        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />-->
+        <title>Fud</title>
     </head>
-    <body>
+    <body ng-app="starter" no-scroll>
         <div class="app">
             <!--INDEX-->
             <div id="index" class="page">
@@ -45,20 +19,39 @@
                   <picture>
                       <img src="img/cocktailCake.png" id="logo">
                   </picture>
-                  <button type="submit" id="guest-button">Sign in as Guest</button>
-                  <button type="submit" id="google-button">Sign in with Google</button>
-<!--                  <div class="g-signin2" data-onsuccess="onSignIn"></div>-->
+                  <button type="button" id="guest-button">Sign in as Guest</button>
+<!--                  <button type="button" id="g-signin2">Sign in with Google</button>-->
+                  <button type="submit" class="g-signin2"></button>
               </div>
             </div>
 
             <!--GUEST WELCOME SCREEN-->
             <div id="guest-welcome" class="page" style="display:none">
                 <div id="unauth-welcome-container">
-                    <picture>
-                        <img src="img/wine.png" id="unauth-logo">
-                    </picture>
-                    <p>Welcome Guest.</p>
-                    <a href="index.html">Sign out</a>
+                    <ion-pane ng-controller="CardsCtrl">
+                        <ion-header-bar class="bar-calm">
+                            <picture>
+                                <img src="img/wine.png" id="unauth-logo">
+                            </picture>
+                            <h1 class="title">Welcome Guest</h1>
+                            <a href="index.html">Sign out</a>
+                        </ion-header-bar>
+
+                        <td-cards>
+                            <td-card id="td-card" ng-repeat="card in cards" on-destroy="cardDestroyed($index)"
+                                     on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)"
+                                     on-partial-swipe="cardPartialSwipe(amt)">
+                                <div class="title">
+                                    {{card.title}}
+                                </div>
+                                <div class="image">
+                                    <div class="no-text overlayBox"><div class="noBox boxed">Drinks</div></div>
+                                    <img ng-src="{{card.image}}">
+                                    <div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Food</div></div>
+                                </div>
+                            </td-card>
+                        </td-cards>
+                    </ion-pane>
                 </div>
             </div>
 
@@ -73,20 +66,17 @@
                 </div>
             </div>
         </div>
-<!--        <script type="text/javascript" src="cordova.js"></script>-->
-        <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
-        <script defer src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
-        <script defer src="https://www.gstatic.com/firebasejs/7.0.0/firebase-auth.js"></script>
-<!--        <script defer src="https://www.gstatic.com/firebasejs/7.0.0/firebase-admin.js"></script>-->
-        <script defer src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
-
-<!--        <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase.js"></script>-->
 
 
         <!-- Initialize Firebase -->
-        <script defer src="js/init-firebase.js"></script>
-        <script type="text/javascript" src="js/jquery-1.4.5.js"></script>
+<!--        <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase.js"></script>-->
+<!--        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>-->
+<!--        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>-->
+<!--        <script src="https://www.gstatic.com/firebasejs/7.2.3/init.js"></script>-->
+        <script src="lib/collide/collide.js"></script>
+        <script src="lib/ionic-contrib-tinder-cards/ionic.tdcards.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script type="text/javascript" src="js/jquery-1.4.5.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>

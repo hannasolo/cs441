@@ -17,73 +17,82 @@
  * under the License.
  */
 $(document).ready(function () {
-    var admin = require("firebase-admin");
-    var serviceAccount = require("path/to/serviceAccountKey.json");
-
-    const auth  = firebase.auth();
     var guestButton = $("#guest-button");
-    var googleButton = $("#google-button");
-    var provider = new firebase.auth.GoogleAuthProvider();
-    var firebase = require("firebase/app");
-    require("firebase/auth");
-    require("firebase/firestore");
+    var googleButton = $(".g-signin2");
+    // var gSignOutButton = $("#");
 
-    admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
-        databaseURL: "https://drungry.firebaseio.com"
-    });
-
-   guestButton.click(function () {
+    guestButton.click(function () {
         $("#index").hide();
         $("#guest-welcome").show();
-   });
-
-    googleButton.click( function () {
-        firebase.auth().signInWithEmailAndPassword;
-        showGoogleHome();
-        // firebase.auth().signInWithRedirect(provider).then(function () {
-        //     return firebase.auth().getRedirectResult();
-        // }).then(function (result) {
-        //     // This gives you a Google Access Token.
-        //     // You can use it to access the Google API.
-        //     var token = result.credential.accessToken;
-        //     // The signed-in user info.
-        //     var user = result.user;
-        //     showGoogleHome();
-        // }).catch(function (error) {
-        //     // Handle Errors here.
-        //     var errorCode = error.code;
-        //     var errorMessage = error.message;
-        // });
-        //
-        // firebase.auth().getRedirectResult().then(function (result) {
-        //     if (result.credential) {
-        //         // This gives you a Google Access Token.
-        //         // You can use it to access the Google API.
-        //         var token = result.credential.accessToken;
-        //         // The signed-in user info.
-        //         var user = result.user;
-        //         // ...
-        //     }
-        // }).catch(function (error) {
-        //     // Handle Errors here.
-        //     var errorCode = error.code;
-        //     var errorMessage = error.message;
-        // });
     });
 
-    function showGoogleHome() {
+    googleButton.click(function (googleUser) {
         $("#index").hide();
         $("#google-welcome").show();
-    }
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
-   function signOut()
-    {
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+    });
+
+    function signOut() {
         var auth2 = gapi.auth2.getAuthInstance();
 
-        auth2.signOut().then(function ()
-        {
+        auth2.signOut().then(function () {
             console.log('User signed out.');
         });
     }
+
+    function showPage() {
+
+    }
+
+    angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards'])
+
+    .directive('noScroll', function () {
+        return {
+            restrict: 'A',
+            link: function ($scope, $element, $attr) {
+                $element.on('touchmove', function (e) {
+                    e.preventDefault();
+                });
+            }
+        }
+    })
+
+    .controller('CardsCtrl', function($scope) {
+        var cardTypes = [
+            { image: 'img/pic2.png', title: 'So much grass #hippster'},
+            { image: 'img/pic3.png', title: 'Way too much Sand, right?'},
+            { image: 'img/pic4.png', title: 'Beautiful sky from wherever'},
+        ];
+
+        $scope.cards = [];
+
+        $scope.addCard = function(i) {
+            var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
+            newCard.id = Math.random();
+            $scope.cards.push(angular.extend({}, newCard));
+        };
+
+        for(var i = 0; i < 3; i++) $scope.addCard();
+
+        $scope.cardSwipedLeft = function(index) {
+            console.log('Left swipe');
+        };
+
+        $scope.cardSwipedRight = function(index) {
+            console.log('Right swipe');
+        };
+
+        $scope.cardDestroyed = function(index) {
+            $scope.cards.splice(index, 1);
+            console.log('Card removed');
+        }
+    });
 });

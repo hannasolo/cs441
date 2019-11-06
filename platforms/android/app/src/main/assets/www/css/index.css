@@ -16,6 +16,18 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+
+/*COLORS: (in the order they appear in the image)
+#ecebd7
+#afd9c3
+#6ead9c
+#517c72
+#6caebc
+#b8dfdc
+*/
+
+
 @font-face {
     font-family: poiret;
     src: local("assets/fonts/PoiretOne-Regular.ttf");

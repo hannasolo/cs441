@@ -17,14 +17,14 @@
  * under the License.
  */
 $(document).ready(function () {
-    const auth  = firebase.auth();
+    var provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+
+    firebase.initializeApp('1:667199072525:web:b5c315c475df7766c26844');
+    console.log(firebase.app().name);
+    // const auth  = firebase.auth();
     var guestButton = $("#guest-button");
     var googleButton = $("#google-button");
-    var provider = new firebase.auth.GoogleAuthProvider();
-    var firebase = require("firebase/app");
-    require("firebase/auth");
-    require("firebase/firestore");
-
 
    guestButton.click(function () {
         $("#index").hide();
@@ -33,36 +33,23 @@ $(document).ready(function () {
 
     googleButton.click( function () {
         firebase.auth().signInWithEmailAndPassword;
-        showGoogleHome();
-        // firebase.auth().signInWithRedirect(provider).then(function () {
-        //     return firebase.auth().getRedirectResult();
-        // }).then(function (result) {
-        //     // This gives you a Google Access Token.
-        //     // You can use it to access the Google API.
-        //     var token = result.credential.accessToken;
-        //     // The signed-in user info.
-        //     var user = result.user;
-        //     showGoogleHome();
-        // }).catch(function (error) {
-        //     // Handle Errors here.
-        //     var errorCode = error.code;
-        //     var errorMessage = error.message;
-        // });
-        //
-        // firebase.auth().getRedirectResult().then(function (result) {
-        //     if (result.credential) {
-        //         // This gives you a Google Access Token.
-        //         // You can use it to access the Google API.
-        //         var token = result.credential.accessToken;
-        //         // The signed-in user info.
-        //         var user = result.user;
-        //         // ...
-        //     }
-        // }).catch(function (error) {
-        //     // Handle Errors here.
-        //     var errorCode = error.code;
-        //     var errorMessage = error.message;
-        // });
+        firebase.auth().getRedirectResult().then(function(result) {
+            if (result.credential) {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = result.credential.accessToken;
+            }
+            // The signed-in user info.
+            var user = result.user;
+            showGoogleHome();
+        }).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+        });
     });
 
     function showGoogleHome() {

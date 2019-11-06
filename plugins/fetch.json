@@ -18,7 +18,7 @@
   "cordova-universal-links-plugin": {
     "source": {
       "type": "registry",
-      "id": "cordova-universal-links-plugin-fix"
+      "id": "cordova-universal-links-plugin-fix@1.2.1"
     },
     "is_top_level": true,
     "variables": {}
@@ -26,7 +26,7 @@
   "cordova-plugin-browsertab": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-browsertab"
+      "id": "cordova-plugin-browsertab@0.2.0"
     },
     "is_top_level": true,
     "variables": {}
@@ -46,5 +46,15 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-customurlscheme": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-customurlscheme@4.4.0"
+    },
+    "is_top_level": true,
+    "variables": {
+      "URL_SCHEME": "com.hannalynn.drungry"
+    }
   }
 }

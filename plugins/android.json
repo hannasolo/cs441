@@ -21,6 +21,13 @@
     },
     "cordova-universal-links-plugin": {
       "PACKAGE_NAME": "com.hannalynn.drungry"
+    },
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "com.hannalynn.drungry",
+      "ANDROID_SCHEME": " ",
+      "ANDROID_HOST": " ",
+      "ANDROID_PATHPREFIX": "/",
+      "PACKAGE_NAME": "com.hannalynn.drungry"
     }
   },
   "dependent_plugins": {}
