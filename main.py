@@ -37,8 +37,23 @@ _API_VERSION_ = 1
 @app.route(f'/apiv{_API_VERSION_}/recipes_drink', methods=['POST'])
 def recipes_drink():
     if request.method == 'POST':
-        pass
-        
+        json_obj = request.get_json()
+        name = json_obj['name']
+        #image_url = request.form.get('image_url')
+
+        con = mysql.connect
+        cur = con.cursor()
+
+        cur.execute(f'''
+        INSERT INTO drinkrecipes(name) VALUES ('AAA');        
+        ''')
+
+        con.commit()
+        cur.close()
+
+        print(name)
+
+    return 'POST RECEIVED'
 
 
 # Drink recipe Search
