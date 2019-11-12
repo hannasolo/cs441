@@ -76,14 +76,18 @@ def drink_search():
 
         # Check if the tags parameter has been passed in
         if len(tags) != 0:
-            tags_splited = tuple(tags.split(','))
+            tags_spliced = tuple(tags.split(','))
             query_tags = [' AND (']
 
-            for _ in tags_splited:
+            for _ in tags_spliced:
                 query_tags.append(f't.name LIKE %s OR ')
 
             sql_tags = ''.join(query_tags)[:-3] + ') LIMIT %s;'
+        else:
+            tags_spliced = ()
+            sql_tags = 'LIMIT %s;'
 
+        # Combine the sql query
         sql_query = ''.join(['''
         SELECT DISTINCT dr.drinkrecipe_id, dr.name, steps, ratings, image_url FROM drinkrecipes dr
         INNER JOIN drinkrecipestags drt ON dr.drinkrecipe_id = drt.drinkrecipe_id
@@ -91,11 +95,14 @@ def drink_search():
         WHERE dr.name LIKE %s
         ''', sql_tags])
 
-        query_parameters = (f'%{name}%',) + tags_splited + (results,)
+        # Parameterize look-up
+        query_parameters = (f'%{name}%',) + tags_spliced + (results,)
 
         cur.execute(sql_query, query_parameters)
 
+        # Fetch and close cursor
         rv = cur.fetchall()
+        cur.close()
 
         # Formatting for the JSON response
         names_json = ('id', 'name', 'steps_url', 'ratings', 'image_url')
@@ -104,8 +111,6 @@ def drink_search():
         for recipe in rv:
             json_response['recipes'].append(
                 dict(zip(names_json, recipe)))
-
-        cur.close()
 
         return jsonify(json_response)
 
