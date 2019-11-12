@@ -112,6 +112,8 @@ def drink_search():
             json_response['recipes'].append(
                 dict(zip(names_json, recipe)))
 
+        json_response['results'] = len(rv)
+
         return jsonify(json_response)
 
 
