@@ -89,10 +89,10 @@ def drink_search():
 
         # Combine the sql query
         sql_query = ''.join(['''
-        SELECT DISTINCT dr.drinkrecipe_id, dr.name, steps, ratings, image_url FROM drinkrecipes dr
+        SELECT DISTINCT dr.drinkrecipe_id, dr.name, steps, ratings, image_url, GROUP_CONCAT(t.name) FROM drinkrecipes dr
         INNER JOIN drinkrecipestags drt ON dr.drinkrecipe_id = drt.drinkrecipe_id
         INNER JOIN tags t ON t.tag_id = drt.tag_id
-        WHERE dr.name LIKE %s
+        WHERE dr.name LIKE %s GROUP BY dr.name
         ''', sql_tags])
 
         # Parameterize look-up
@@ -105,7 +105,7 @@ def drink_search():
         cur.close()
 
         # Formatting for the JSON response
-        names_json = ('id', 'name', 'steps_url', 'ratings', 'image_url')
+        names_json = ('id', 'name', 'steps_url', 'ratings', 'image_url', 'tags')
         json_response = {'recipes': []}
 
         for recipe in rv:
