@@ -76,20 +76,24 @@ def drink_search():
 
         # Check if the tags parameter has been passed in
         if len(tags) != 0:
-            tags = tags.split(',')
+            tags_splited = tuple(tags.split(','))
             query_tags = [' AND (']
 
-            for item in tags:
-                query_tags.append(f't.name LIKE \'%{item}%\' OR ')
+            for _ in tags_splited:
+                query_tags.append(f't.name LIKE %s OR ')
 
-            tags = ''.join(query_tags)[:-3] + ') '
+            sql_tags = ''.join(query_tags)[:-3] + ') LIMIT %s;'
 
-        cur.execute(f'''
+        sql_query = ''.join(['''
         SELECT DISTINCT dr.drinkrecipe_id, dr.name, steps, ratings, image_url FROM drinkrecipes dr
         INNER JOIN drinkrecipestags drt ON dr.drinkrecipe_id = drt.drinkrecipe_id
         INNER JOIN tags t ON t.tag_id = drt.tag_id
-        WHERE dr.name LIKE '%{name}%'{tags}LIMIT {results};
-        ''')
+        WHERE dr.name LIKE %s
+        ''', sql_tags])
+
+        query_parameters = (f'%{name}%',) + tags_splited + (results,)
+
+        cur.execute(sql_query, query_parameters)
 
         rv = cur.fetchall()
 
