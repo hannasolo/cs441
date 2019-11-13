@@ -2,7 +2,7 @@ import MySQLdb
 
 
 class dbHandler:
-
+    print("hello");
     #creates an object of the dbHandler, to be initialized in main flask server
     def __init__(self):
         pass
