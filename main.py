@@ -77,23 +77,27 @@ def drink_search():
         # Check if the tags parameter has been passed in
         if len(tags) != 0:
             tags_spliced = tuple(tags.split(','))
-            query_tags = [' AND (']
+            query_tags = [''' 
+                AND drt.drinkrecipe_id IN (SELECT drt.drinkrecipe_id FROM drinkrecipestags drt
+                INNER JOIN tags t ON drt.tag_id = t.tag_id WHERE 
+                ''']
 
             for _ in tags_spliced:
                 query_tags.append(f't.name LIKE %s OR ')
 
-            sql_tags = ''.join(query_tags)[:-3] + ') LIMIT %s;'
+            sql_tags = ''.join(query_tags)[:-3] + ')'
         else:
             tags_spliced = ()
-            sql_tags = 'LIMIT %s;'
+            sql_tags = ''
 
         # Combine the sql query
-        sql_query = ''.join(['''
-        SELECT DISTINCT dr.drinkrecipe_id, dr.name, steps, ratings, image_url, GROUP_CONCAT(t.name) FROM drinkrecipes dr
-        INNER JOIN drinkrecipestags drt ON dr.drinkrecipe_id = drt.drinkrecipe_id
-        INNER JOIN tags t ON t.tag_id = drt.tag_id
-        WHERE dr.name LIKE %s GROUP BY dr.name
-        ''', sql_tags])
+        sql_query = f'''
+        SELECT dr.drinkrecipe_id, dr.name, dr.steps, dr.ratings, dr.image_url, GROUP_CONCAT(t.name) FROM drinkrecipes dr
+            INNER JOIN drinkrecipestags drt ON dr.drinkrecipe_id = drt.drinkrecipe_id
+            INNER JOIN tags t ON drt.tag_id = t.tag_id
+            WHERE dr.name LIKE %s {sql_tags}
+            GROUP BY dr.drinkrecipe_id, dr.name, dr.steps, dr.ratings, dr.image_url LIMIT %s;
+        '''
 
         # Parameterize look-up
         query_parameters = (f'%{name}%',) + tags_spliced + (results,)
@@ -109,6 +113,8 @@ def drink_search():
         json_response = {'recipes': []}
 
         for recipe in rv:
+            recipe = list(recipe)
+            recipe[5] = recipe[5].split(',')
             json_response['recipes'].append(
                 dict(zip(names_json, recipe)))
 
