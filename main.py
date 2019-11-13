@@ -82,10 +82,17 @@ def drink_search():
                 INNER JOIN tags t ON drt.tag_id = t.tag_id WHERE 
                 ''']
 
-            for _ in tags_spliced:
-                query_tags.append(f't.name LIKE %s OR ')
+            for tag in tags_spliced:
+                if tag == '&':
+                    query_tags.append(' AND ')
+                elif tag == '|':
+                    query_tags.append(' OR ')
+                else:
+                    query_tags.append(f't.name LIKE %s')
+            tags_spliced = tuple(filter(lambda x: not x == '&' or not x != '|', tags_spliced))
+            query_tags.append(')')
 
-            sql_tags = ''.join(query_tags)[:-3] + ')'
+            sql_tags = ''.join(query_tags)
         else:
             tags_spliced = ()
             sql_tags = ''
