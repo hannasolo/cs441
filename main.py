@@ -68,7 +68,7 @@ def recipes_drink():
 @app.route('/apiv{}/recipes_drink/search'.format(_API_VERSION_), methods=['GET'])
 def drink_search():
     if request.method == 'GET':
-        name = request.args.get('searchname', default='', type=str)
+        name = request.args.get('names', default='', type=str)
         tags = request.args.get('tags', default='', type=str)
         results = request.args.get('results', default=10, type=int)
 
