@@ -77,21 +77,16 @@ def drink_search():
         # Check if the tags parameter has been passed in
         if len(tags) != 0:
             tags_spliced = tuple(tags.split(','))
-            query_tags = [''' 
-                AND drt.drinkrecipe_id IN (SELECT drt.drinkrecipe_id FROM drinkrecipestags drt
-                INNER JOIN tags t ON drt.tag_id = t.tag_id WHERE 
-                ''']
+            query_tags = ['''HAVING tags_name LIKE %s''']
+            parameter_tags = []
 
             for tag in tags_spliced:
-                if tag == '&':
-                    query_tags.append(' AND ')
-                elif tag == '|':
-                    query_tags.append(' OR ')
-                else:
-                    query_tags.append(f't.name LIKE %s')
-            tags_spliced = tuple(filter(lambda x: not x == '&' or not x != '|', tags_spliced))
-            query_tags.append(')')
+                parameter_tags.append(''.join(['%', tag.replace('&', '%%'), '%']))
+                query_tags.append(''' OR tags_name LIKE %s''')
 
+            tags_spliced = tuple(parameter_tags)
+
+            query_tags.pop()
             sql_tags = ''.join(query_tags)
         else:
             tags_spliced = ()
@@ -99,11 +94,13 @@ def drink_search():
 
         # Combine the sql query
         sql_query = f'''
-        SELECT dr.drinkrecipe_id, dr.name, dr.steps, dr.ratings, dr.image_url, GROUP_CONCAT(t.name) FROM drinkrecipes dr
-            INNER JOIN drinkrecipestags drt ON dr.drinkrecipe_id = drt.drinkrecipe_id
-            INNER JOIN tags t ON drt.tag_id = t.tag_id
-            WHERE dr.name LIKE %s {sql_tags}
-            GROUP BY dr.drinkrecipe_id, dr.name, dr.steps, dr.ratings, dr.image_url LIMIT %s;
+        SELECT dr.drinkrecipe_id, dr.name, dr.steps, dr.ratings, dr.image_url, GROUP_CONCAT(t.name) 
+            as tags_name FROM drinkrecipes dr
+            INNER JOIN drinkrecipestags drt on dr.drinkrecipe_id = drt.drinkrecipe_id
+            INNER JOIN tags t on drt.tag_id = t.tag_id
+            WHERE dr.name LIKE %s
+            GROUP BY dr.drinkrecipe_id, dr.name, dr.steps, dr.ratings, dr.image_url 
+            ASC {sql_tags} LIMIT %s;
         '''
 
         # Parameterize look-up
