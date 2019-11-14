@@ -68,11 +68,31 @@ def recipes_drink():
 @app.route('/apiv{}/recipes_drink/search'.format(_API_VERSION_), methods=['GET'])
 def drink_search():
     if request.method == 'GET':
-        name = request.args.get('names', default='', type=str)
+        names = request.args.get('names', default='', type=str)
         tags = request.args.get('tags', default='', type=str)
         results = request.args.get('results', default=10, type=int)
 
         cur = mysql.connect.cursor()
+
+        # Check if name parameter has been passed in
+        if len(names) != 0:
+            names_spliced = tuple(names.split(' '))
+            query_names = []
+            parameter_names = []
+
+            # Build query for name
+            for name in names_spliced:
+                query_names.append('''OR dr.name LIKE %s''')
+                parameter_names.append(''.join(['%', name, '%']))
+
+            # Parameterize names for type sanitation
+            names_spliced = tuple(parameter_names)
+
+            query_names.pop()
+            sql_names = ' '.join(query_names)
+        else:
+            names_spliced = ('%%',)
+            sql_names = ''
 
         # Check if the tags parameter has been passed in
         if len(tags) != 0:
@@ -80,10 +100,12 @@ def drink_search():
             query_tags = ['''HAVING tags_name LIKE %s''']
             parameter_tags = []
 
+            # Build query for tags
             for tag in tags_spliced:
                 parameter_tags.append(''.join(['%', tag.replace('&', '%%'), '%']))
                 query_tags.append(''' OR tags_name LIKE %s''')
 
+            # Parameterize tags for type sanitation
             tags_spliced = tuple(parameter_tags)
 
             query_tags.pop()
@@ -98,13 +120,13 @@ def drink_search():
             as tags_name FROM drinkrecipes dr
             INNER JOIN drinkrecipestags drt on dr.drinkrecipe_id = drt.drinkrecipe_id
             INNER JOIN tags t on drt.tag_id = t.tag_id
-            WHERE dr.name LIKE %s
-            GROUP BY dr.drinkrecipe_id, dr.name, dr.steps, dr.ratings, dr.image_url 
-            ASC {sql_tags} LIMIT %s;
+            WHERE dr.name LIKE %s {sql_names}
+            GROUP BY dr.drinkrecipe_id, dr.name, dr.steps, dr.ratings, dr.image_url ASC {sql_tags}
+            LIMIT %s;
         '''
 
         # Parameterize look-up
-        query_parameters = (f'%{name}%',) + tags_spliced + (results,)
+        query_parameters = (names_spliced + tags_spliced + (results,))
 
         cur.execute(sql_query, query_parameters)
 
