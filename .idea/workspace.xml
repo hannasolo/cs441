@@ -2,127 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc3b9df2-ffda-412f-83bb-96e4e7115af5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bower_components/collide/.bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/collide/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/collide/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/collide/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/collide/collide.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/collide/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/.bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/demo/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/demo/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/demo/ben.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/demo/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/demo/max.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/demo/perry.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/ionic.project" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/merges/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/platforms/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/plugins/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/img/ionic.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/img/pic.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/img/pic2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/img/pic3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/img/pic4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/css/ionic.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/css/ionic.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/fonts/ionicons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/fonts/ionicons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/fonts/ionicons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/fonts/ionicons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/angular-ui/angular-ui-router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/angular-ui/angular-ui-router.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/angular/angular-animate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/angular/angular-animate.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/angular/angular-resource.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/angular/angular-resource.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/angular/angular-sanitize.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/angular/angular-sanitize.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/angular/angular.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/angular/angular.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/ionic-angular.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/ionic-angular.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/ionic.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/ionic.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/ionic.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/lib/js/ionic.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/android/icon-36-ldpi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/android/icon-48-mdpi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/android/icon-72-hdpi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/android/icon-96-xhdpi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/bada-wac/icon-48-type5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/bada-wac/icon-50-type3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/bada-wac/icon-80-type4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/bada/icon-128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/blackberry/icon-80.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/ios/icon-57-2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/ios/icon-57.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/ios/icon-72-2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/ios/icon-72.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/tizen/icon-128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/webos/icon-64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/windows-phone/icon-173-tile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/windows-phone/icon-48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/icon/windows-phone/icon-62-tile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/android/screen-hdpi-landscape.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/android/screen-hdpi-portrait.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/android/screen-ldpi-landscape.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/android/screen-ldpi-portrait.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/android/screen-mdpi-landscape.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/android/screen-mdpi-portrait.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/android/screen-xhdpi-landscape.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/android/screen-xhdpi-portrait.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/bada-wac/screen-type3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/bada-wac/screen-type4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/bada-wac/screen-type5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/bada/screen-portrait.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/blackberry/screen-225.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/ios/screen-ipad-landscape-2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/ios/screen-ipad-landscape.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/ios/screen-ipad-portrait-2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/ios/screen-ipad-portrait.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/ios/screen-iphone-landscape-2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/ios/screen-iphone-landscape.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/ios/screen-iphone-portrait-2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/ios/screen-iphone-portrait-568h-2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/ios/screen-iphone-portrait.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/tizen/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/webos/screen-64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/res/screen/windows-phone/screen-portrait.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/templates/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/templates/adopt.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/templates/pet-detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/templates/pet-index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/example/www/templates/tabs.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/ionic.tdcards.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bower_components/ionic-ion-tinder-cards/ionic.tdcards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Drungry.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/martiniGlassLogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/swipe.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms/android/android.json" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/android.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/cordova_plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/cordova_plugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/src/main/assets/www/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms/android/app/src/main/res/xml/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/app/src/main/res/xml/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms/android/platform_www/cordova_plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/android/platform_www/cordova_plugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/android.json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/android.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/fetch.json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fetch.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/index.js" afterDir="false" />
@@ -179,7 +65,7 @@
       <workItem from="1569868673266" duration="10097000" />
       <workItem from="1569887675254" duration="15637000" />
       <workItem from="1572304199184" duration="1370000" />
-      <workItem from="1572478383788" duration="11357000" />
+      <workItem from="1572478383788" duration="20665000" />
     </task>
     <servers />
   </component>

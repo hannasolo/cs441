@@ -45,7 +45,7 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color: #ecebd7;
+    background-color: #0b0617;
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
     font-size:12px;
     height:100vh;
@@ -57,7 +57,7 @@ body {
 
 /* Portrait layout (default) */
 .app {
-    background:#ecebd7; /* 170px x 200px */
+    background:#0b0617; /* 170px x 200px */
     position:absolute;             /* position in the center of the screen */
     left:50%;
     top:50%;
@@ -123,6 +123,7 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
+
 #guest-button {
     background: #6caebc;
     color: #ffffff;
@@ -131,6 +132,13 @@ h1 {
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 5px;
+}
+
+.abcRioButton {
+    height: 35px;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
 #google-button {

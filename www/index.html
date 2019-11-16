@@ -7,8 +7,11 @@
         <meta name="google-signin-client_id" content="667199072525-h7t5lh3t13fdbg2p8mn7huhed9fkj3tp.apps.googleusercontent.com">
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-<!--        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+
+        <!--        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />-->
         <title>Fud</title>
     </head>
     <body ng-app="starter" no-scroll>
@@ -17,54 +20,23 @@
             <div id="index" class="page">
               <div id="login-container">
                   <picture>
-                      <img src="img/cocktailCake.png" id="logo">
+                      <img src="img/martiniGlassLogo.png" id="logo">
                   </picture>
-                  <button type="button" id="guest-button">Sign in as Guest</button>
-<!--                  <button type="button" id="g-signin2">Sign in with Google</button>-->
-                  <button type="submit" class="g-signin2"></button>
+                  <div class="g-signin2" data-onsuccess="onSignIn"></div>
               </div>
             </div>
 
             <!--GUEST WELCOME SCREEN-->
-            <div id="guest-welcome" class="page" style="display:none">
-                <div id="unauth-welcome-container">
-                    <ion-pane ng-controller="CardsCtrl">
-                        <ion-header-bar class="bar-calm">
-                            <picture>
-                                <img src="img/wine.png" id="unauth-logo">
-                            </picture>
-                            <h1 class="title">Welcome Guest</h1>
-                            <a href="index.html">Sign out</a>
-                        </ion-header-bar>
-
-                        <td-cards>
-                            <td-card id="td-card" ng-repeat="card in cards" on-destroy="cardDestroyed($index)"
-                                     on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)"
-                                     on-partial-swipe="cardPartialSwipe(amt)">
-                                <div class="title">
-                                    {{card.title}}
-                                </div>
-                                <div class="image">
-                                    <div class="no-text overlayBox"><div class="noBox boxed">Drinks</div></div>
-                                    <img ng-src="{{card.image}}">
-                                    <div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Food</div></div>
-                                </div>
-                            </td-card>
-                        </td-cards>
-                    </ion-pane>
+            <div id="welcome" class="page" style="display:none">
+                <div class="slider">
+                    <ul class="bxslider">
+                        <li style="background-image: url('img/swipe.png');"></li>
+                        <li style="background-image: url('http://bxslider.com/images/home_slides/hillside.jpg');"></li>
+                    </ul>
                 </div>
             </div>
 
-            <!--GOOGLE USER WELCOME SCREEN-->
-            <div id="google-welcome" class="page" style="display:none">
-                <div id="auth-welcome-container">
-                    <picture>
-                        <img src="img/margarita.png" id="auth-logo">
-                    </picture>
-                    <p>Welcome Google User.</p>
-                    <a href="index.html" onclick="signOut();">Sign out</a>
-                </div>
-            </div>
+            <!--                    <a href="index.html" onclick="signOut();">Sign out</a>-->
         </div>
 
 
@@ -73,10 +45,12 @@
 <!--        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>-->
 <!--        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>-->
 <!--        <script src="https://www.gstatic.com/firebasejs/7.2.3/init.js"></script>-->
-        <script src="lib/collide/collide.js"></script>
-        <script src="lib/ionic-contrib-tinder-cards/ionic.tdcards.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
-        <script type="text/javascript" src="js/jquery-1.4.5.js"></script>
+<!--        <script type="text/javascript" src="js/jquery-1.4.5.js"></script>-->
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>

@@ -17,16 +17,10 @@
  * under the License.
  */
 $(document).ready(function () {
-    var guestButton = $("#guest-button");
     var googleButton = $(".g-signin2");
     // var gSignOutButton = $("#");
 
-    guestButton.click(function () {
-        $("#index").hide();
-        $("#guest-welcome").show();
-    });
-
-    googleButton.click(function (googleUser) {
+    function onSignIn(googleUser) {
         $("#index").hide();
         $("#google-welcome").show();
         var profile = googleUser.getBasicProfile();
@@ -38,7 +32,38 @@ $(document).ready(function () {
         // The ID token you need to pass to your backend:
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
+    }
+
+    // Controls the Slider for food/drink items
+    var slider = $('.slider8').bxSlider({
+        mode: 'vertical',
+        slideWidth: 300,
+        minSlides: 3,
+        moveSlides: 1,
+        slideMargin: 10,
+        onSliderLoad: function () {
+            $('.slider8>div:not(.bx-clone)').eq(1).addClass('active-slide');
+        },
+        onSlideAfter: function ($slideElement, oldIndex, newIndex) {
+            $('.slide').removeClass('active-slide');
+            $($slideElement).next().addClass('active-slide');
+        }
     });
+
+    // Check if the user is already logged in
+    function checkIfLoggedIn()
+    {
+        // If they are not logged in, then log the user in
+        if(sessionStorage.getItem('myUserEntity') == null){
+            //Redirect to login page, no user entity available in sessionStorage
+            window.location.href='Login.html';
+        } else {
+            //User already logged in, redirect to index.
+            var userEntity = {};
+            userEntity = JSON.parse(sessionStorage.getItem('myUserEntity'));
+            showPage("#index");
+        }
+    }
 
     function signOut() {
         var auth2 = gapi.auth2.getAuthInstance();
@@ -48,51 +73,8 @@ $(document).ready(function () {
         });
     }
 
-    function showPage() {
-
+    function showPage(page) {
+        $("#").hide();
+        page.show();
     }
-
-    angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards'])
-
-    .directive('noScroll', function () {
-        return {
-            restrict: 'A',
-            link: function ($scope, $element, $attr) {
-                $element.on('touchmove', function (e) {
-                    e.preventDefault();
-                });
-            }
-        }
-    })
-
-    .controller('CardsCtrl', function($scope) {
-        var cardTypes = [
-            { image: 'img/pic2.png', title: 'So much grass #hippster'},
-            { image: 'img/pic3.png', title: 'Way too much Sand, right?'},
-            { image: 'img/pic4.png', title: 'Beautiful sky from wherever'},
-        ];
-
-        $scope.cards = [];
-
-        $scope.addCard = function(i) {
-            var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
-            newCard.id = Math.random();
-            $scope.cards.push(angular.extend({}, newCard));
-        };
-
-        for(var i = 0; i < 3; i++) $scope.addCard();
-
-        $scope.cardSwipedLeft = function(index) {
-            console.log('Left swipe');
-        };
-
-        $scope.cardSwipedRight = function(index) {
-            console.log('Right swipe');
-        };
-
-        $scope.cardDestroyed = function(index) {
-            $scope.cards.splice(index, 1);
-            console.log('Card removed');
-        }
-    });
 });
