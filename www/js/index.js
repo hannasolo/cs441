@@ -41,19 +41,12 @@ $(document).ready(function () {
     // }
 
     // Controls the Slider for food/drink items
-    var slider = $('.slider8').bxSlider({
-        mode: 'vertical',
-        slideWidth: 300,
-        minSlides: 3,
-        moveSlides: 1,
-        slideMargin: 10,
-        onSliderLoad: function () {
-            $('.slider8>div:not(.bx-clone)').eq(1).addClass('active-slide');
-        },
-        onSlideAfter: function ($slideElement, oldIndex, newIndex) {
-            $('.slide').removeClass('active-slide');
-            $($slideElement).next().addClass('active-slide');
-        }
+    $('.bxslider').bxSlider({
+        auto: false,
+        autoControls: false,
+        stopAutoOnClick: true,
+        pager: false
+        // slideWidth: 600
     });
 
     // function signOut() {

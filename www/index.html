@@ -3,44 +3,24 @@
     <head>
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
-        <meta name="google-signin-scope" content="profile email">
-        <meta name="google-signin-client_id" content="667199072525-h7t5lh3t13fdbg2p8mn7huhed9fkj3tp.apps.googleusercontent.com">
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
+<!--        <meta name="google-signin-scope" content="profile email">-->
+<!--        <meta name="google-signin-client_id" content="667199072525-h7t5lh3t13fdbg2p8mn7huhed9fkj3tp.apps.googleusercontent.com">-->
+<!--        <script src="https://apis.google.com/js/platform.js" async defer></script>-->
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css/all.min.css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-
-        <!--        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />-->
         <title>Fud</title>
     </head>
     <body>
         <div class="app">
-            <nav class="navbar lighten-4 mb-4">
-                <!-- Collapse button -->
-                <button class="navbar-toggler toggler-example darken-3" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent41" aria-controls="navbarSupportedContent41" aria-expanded="false"
-                        aria-label="Toggle navigation"><span class="black-text"><i class="fas fa-bars fa-2x"></i></span></button>
-                <!-- Collapsible content -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent41">
-                    <!-- Links -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" data-page="home">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-page="drinks">Drinks</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-page="food">Food</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link sign-out" data-page="index">Sign Out</a>
-                        </li>
-                    </ul>
-                    <!-- Links -->
-                </div>
-                <!-- Collapsible content -->
+            <nav class="navbar navbar-expand-lg">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#page-index"><i class="fas fa-home"></i></a></li>
+                    <li class="nav-item"><input class="form-control mr-sm-2" type="search" placeholder="Moscow Mule" aria-label="Moscow Mule"></li>
+                    <li class="nav-item"><button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-fw fa-search"></i></button></li>
+                </ul>
             </nav>
             <!--LOGIN PAGE-->
 <!--            <div id="page-login" class="page">-->
@@ -53,17 +33,13 @@
 <!--            </div>-->
 
             <!--HOME SCREEN-->
-            <div id="page-index" class="page" style="display:none">
-                <div class="slider">
-                    <ul class="bxslider">
-                        <li style="background-image: url('http://bxslider.com/images/home_slides/hillside.jpg');"></li>
-                        <li style="background-image: url('img/swipe.png');"></li>
-                        <li style="background-image: url('http://bxslider.com/images/home_slides/hillside.jpg');"></li>
-                    </ul>
+            <div id="page-index" class="page">
+                <div class="bxslider">
+                    <div><img src="img/cocktailCake.png"></div>
+                    <div><img src="img/swipe.png"></div>
+                    <div><img src="img/cake.png"></div>
                 </div>
             </div>
-
-            <!--                    <a href="index.html" onclick="signOut();">Sign out</a>-->
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -76,5 +52,3 @@
     </body>
 </html>
 
-<!--667199072525-903adcdsvn2k4k24q9po14df2kgh88al.apps.googleusercontent.com-->
-<!--F3_yUjhUTt4yKCfpO9EVoFjh-->

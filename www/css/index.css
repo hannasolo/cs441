@@ -96,21 +96,15 @@ h1 {
     to { opacity: 1.0; }
 }
 
+/****BEGIN NAVBAR STYLING****/
 .navbar {
-    text-align: right;
+    text-align: left;
     padding: 0;
-    height: 50px;
-    background: #afd9c3;
+    height: 70px;
+    background: #6ead9c;
     border-bottom: 1px solid #ecebd7;
     margin-bottom: 0;
-}
-
-.navbar-collapse {
-    background: #517c72;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: 9px;
-    overflow-y: hidden !important;
+    display: inline;
 }
 
 .navbar-nav {
@@ -124,17 +118,80 @@ h1 {
     color: #ecebd7;
 }
 
+.navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 30px;
+}
+
 li.nav-item {
-    line-height: 35px;
     font-size: 14px;
+    list-style: none;
 }
 
-button.navbar-toggler {
-    margin: 10px 10px 0 0;
-    color: #000000;
+/*HOME ICON*/
+.fa-home:before {
+    content: "\f015";
+    color: #517c72;
+    margin-left: 15px;
+    font-size: xx-large;
 }
 
-
-#logo {
-    height: 200px;
+/*SEARCH BAR*/
+.form-control {
+    display: block;
+    width: 75%;
+    height: 35px;
+    padding: 16.375rem -0.25rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #F3FDF8;
+    background-clip: padding-box;
+    border: 1px solid #F3FDF8;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin-bottom: 5px;
 }
+
+/*SEARCH ICON*/
+.fa-search:before {
+    content: "\f002";
+    font-size: xx-large;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #517c72;
+    text-align: center;
+    /* vertical-align: middle; */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    /* padding: .375rem .75rem; */
+    font-size: 1rem;
+    line-height: 1.5;
+    /* border-radius: .25rem; */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+/*****END NAVBAR STYLING*****/
+
+/*****BEGIN SLIDER STYLING*****/
+.bx-viewport {
+    -moz-box-shadow: 0 0 5px #ccc;
+    -webkit-box-shadow: 0 0 5px #ccc;
+    box-shadow: 0 0 5px #ccc;
+    border: 5px solid #ecebd7;
+    background: #ecebd7;
+    height: 731px;
+}
+
+.bx-wrapper .bx-controls-direction a {
+    display: none;
+}
+/*****END SLIDER STYLING*****/
+
