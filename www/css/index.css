@@ -121,6 +121,7 @@ h1 {
 .nav-justified .nav-item {
     flex-basis: 1;
     flex-grow: 1;
+    text-align: left;
 }
 
 .navbar-nav {
@@ -163,7 +164,7 @@ a {
 /*SEARCH BAR*/
 .form-control {
     display: block;
-    width: 155%;
+    width: 125%;
     height: 35px;
     padding: 16.375rem -0.25rem;
     font-size: 1rem;
@@ -221,7 +222,7 @@ a {
     box-shadow: 0 0 5px #ccc;
     border: 5px solid #ecebd7;
     background: #ecebd7;
-    height: 731px;
+    height: 715px;
 }
 
 .bx-wrapper .bx-controls-direction a {
