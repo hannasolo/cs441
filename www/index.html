@@ -14,22 +14,49 @@
         <!--        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />-->
         <title>Fud</title>
     </head>
-    <body ng-app="starter" no-scroll>
+    <body>
         <div class="app">
-            <!--INDEX-->
-            <div id="index" class="page">
-              <div id="login-container">
-                  <picture>
-                      <img src="img/martiniGlassLogo.png" id="logo">
-                  </picture>
-                  <div class="g-signin2" data-onsuccess="onSignIn"></div>
-              </div>
-            </div>
+            <nav class="navbar lighten-4 mb-4">
+                <!-- Collapse button -->
+                <button class="navbar-toggler toggler-example darken-3" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent41" aria-controls="navbarSupportedContent41" aria-expanded="false"
+                        aria-label="Toggle navigation"><span class="black-text"><i class="fas fa-bars fa-2x"></i></span></button>
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent41">
+                    <!-- Links -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" data-page="home">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-page="drinks">Drinks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-page="food">Food</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link sign-out" data-page="index">Sign Out</a>
+                        </li>
+                    </ul>
+                    <!-- Links -->
+                </div>
+                <!-- Collapsible content -->
+            </nav>
+            <!--LOGIN PAGE-->
+<!--            <div id="page-login" class="page">-->
+<!--              <div id="login-container">-->
+<!--                  <picture>-->
+<!--                      <img src="img/martiniGlassLogo.png" id="logo">-->
+<!--                  </picture>-->
+<!--&lt;!&ndash;                  <div class="my-signin2"></div>&ndash;&gt;-->
+<!--              </div>-->
+<!--            </div>-->
 
-            <!--GUEST WELCOME SCREEN-->
-            <div id="welcome" class="page" style="display:none">
+            <!--HOME SCREEN-->
+            <div id="page-index" class="page" style="display:none">
                 <div class="slider">
                     <ul class="bxslider">
+                        <li style="background-image: url('http://bxslider.com/images/home_slides/hillside.jpg');"></li>
                         <li style="background-image: url('img/swipe.png');"></li>
                         <li style="background-image: url('http://bxslider.com/images/home_slides/hillside.jpg');"></li>
                     </ul>
@@ -39,12 +66,6 @@
             <!--                    <a href="index.html" onclick="signOut();">Sign out</a>-->
         </div>
 
-
-        <!-- Initialize Firebase -->
-<!--        <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase.js"></script>-->
-<!--        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>-->
-<!--        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>-->
-<!--        <script src="https://www.gstatic.com/firebasejs/7.2.3/init.js"></script>-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

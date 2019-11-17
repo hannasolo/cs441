@@ -1,38 +1,44 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 $(document).ready(function () {
-    var googleButton = $(".g-signin2");
-    // var gSignOutButton = $("#");
+    // checkIfLoggedIn();
+    // var googleButton = $("#my-signin2");
 
-    function onSignIn(googleUser) {
-        $("#index").hide();
-        $("#google-welcome").show();
-        var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    // Check if the user is already logged in
+    // function checkIfLoggedIn()
+    // {
+    //     // If they are not logged in, then log the user in
+    //     if(sessionStorage.getItem('myUserEntity') === null){
+    //         //Redirect to login page, no user entity available in sessionStorage
+    //         signIn();
+    //     } else {
+    //         showPage("home");
+    //         //User already logged in, direct to index
+    //         var userEntity = {};
+    //         userEntity = JSON.parse(sessionStorage.getItem('myUserEntity'));
+    //     }
+    // }
 
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-    }
+    // The ID token you need to pass to your backend:
+    // var id_token = googleUser.getAuthResponse().id_token;
+    // console.log("ID Token: " + id_token);
+    //
+    // function onSuccess(googleUser) {
+    //     console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    //     showPage("home");
+    // }
+    // function onFailure(error) {
+    //     console.log(error);
+    // }
+    // function renderButton() {
+    //     gapi.signin2.render(googleButton, {
+    //         'scope': 'profile email',
+    //         'width': 240,
+    //         'height': 50,
+    //         'longtitle': true,
+    //         'theme': 'dark',
+    //         'onsuccess': onSuccess,
+    //         'onfailure': onFailure
+    //     });
+    // }
 
     // Controls the Slider for food/drink items
     var slider = $('.slider8').bxSlider({
@@ -50,31 +56,20 @@ $(document).ready(function () {
         }
     });
 
-    // Check if the user is already logged in
-    function checkIfLoggedIn()
-    {
-        // If they are not logged in, then log the user in
-        if(sessionStorage.getItem('myUserEntity') == null){
-            //Redirect to login page, no user entity available in sessionStorage
-            window.location.href='Login.html';
-        } else {
-            //User already logged in, redirect to index.
-            var userEntity = {};
-            userEntity = JSON.parse(sessionStorage.getItem('myUserEntity'));
-            showPage("#index");
-        }
-    }
-
-    function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-
-        auth2.signOut().then(function () {
-            console.log('User signed out.');
-        });
-    }
+    // function signOut() {
+    //     var auth2 = gapi.auth2.getAuthInstance();
+    //
+    //     auth2.signOut().then(function () {
+    //         console.log('User signed out.');
+    //     });
+    // }
 
     function showPage(page) {
-        $("#").hide();
-        page.show();
+        $(".page").hide();
+        $("#page-" + page).show();
+
+        if (page !== "index") {
+            $(".navbar").show();
+        }
     }
 });
