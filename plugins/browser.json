@@ -1,0 +1,35 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-browsertab": {
+      "PACKAGE_NAME": "com.hannalynn.drungry"
+    },
+    "cordova-plugin-buildinfo": {
+      "PACKAGE_NAME": "com.hannalynn.drungry"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.hannalynn.drungry"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.hannalynn.drungry"
+    },
+    "cordova-universal-links-plugin": {
+      "PACKAGE_NAME": "com.hannalynn.drungry"
+    },
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "com.hannalynn.drungry",
+      "PACKAGE_NAME": "com.hannalynn.drungry"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.hannalynn.drungry"
+    }
+  }
+}

@@ -1,0 +1,232 @@
+/*COLORS: (in the order they appear in the image)
+#ecebd7
+#afd9c3
+#6ead9c
+#517c72
+#6caebc
+#b8dfdc
+*/
+
+
+@font-face {
+    font-family: poiret;
+    src: local("assets/fonts/PoiretOne-Regular.ttf");
+}
+
+.class-myfont {
+    font-family: poiret, Arial, serif;
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color: #afd9c3;
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size:12px;
+    height:100vh;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:#afd9c3; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    height:50px;                   /* text area height */
+    width:100%;                   /* text area width */
+    text-align:center;
+    /*margin:-115px 0px 0px -112px;  !* offset vertical: half of image height and text area height *!*/
+    /*                               !* offset horizontal: half of text area width *!*/
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+/****BEGIN NAVBAR STYLING****/
+.navbar {
+    text-align: left;
+    padding: 0;
+    height: 70px;
+    background: #6ead9c;
+    border-bottom: 1px solid #ecebd7;
+    margin-bottom: 0;
+    display: inline;
+}
+
+.nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    height: 60px;
+}
+
+.nav-justified .nav-item {
+    flex-basis: 1;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.navbar-nav {
+    color: #ecebd7;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav>li>a {
+    color: #ecebd7;
+}
+
+.navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 30px;
+}
+
+li.nav-item {
+    font-size: 14px;
+    list-style: none;
+    margin-top: 10px;
+}
+
+/*HOME ICON*/
+#home-icon {
+    margin-left: 15px;
+}
+
+.fa-home:before {
+    content: "\f015";
+    color: #517c72;
+    font-size: xx-large;
+}
+
+a {
+    margin-top: 5px;
+}
+
+/*SEARCH BAR*/
+.form-control {
+    display: block;
+    width: 125%;
+    height: 35px;
+    padding: 16.375rem -0.25rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #F3FDF8;
+    background-clip: padding-box;
+    border: 1px solid #F3FDF8;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin-bottom: 5px;
+    margin-top: 6px;
+}
+
+/*SEARCH ICON*/
+.fa-search:before {
+    content: "\f002";
+    font-size: xx-large;
+    margin-left: 25px;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #517c72;
+    text-align: center;
+    /* vertical-align: middle; */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    /* padding: .375rem .75rem; */
+    font-size: 1rem;
+    line-height: 1.5;
+    /* border-radius: .25rem; */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.mb-2, .my-2 {
+    margin-bottom: 0!important;
+}
+
+.mt-2, .my-2 {
+    margin-top: 0!important;
+}
+/*****END NAVBAR STYLING*****/
+
+/*****BEGIN SLIDER STYLING*****/
+.bx-viewport {
+    -moz-box-shadow: 0 0 5px #ccc;
+    -webkit-box-shadow: 0 0 5px #ccc;
+    box-shadow: 0 0 5px #ccc;
+    border: 5px solid #ecebd7;
+    background: #ecebd7;
+    height: 715px;
+}
+
+.bx-wrapper .bx-controls-direction a {
+    display: none;
+}
+/*****END SLIDER STYLING*****/
+

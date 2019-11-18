@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Fud",
+  "short_name": "Fud",
+  "version": "com.hannalynn.drungry",
+  "description": "A cocktail/meal recipe app.",
+  "author": "Team CornHub",
+  "icons": [],
+  "start_url": "index.html"
+}
