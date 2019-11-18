@@ -1,23 +1,3 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-
-
 /*COLORS: (in the order they appear in the image)
 #ecebd7
 #afd9c3
@@ -45,7 +25,7 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color: #ecebd7;
+    background-color: #afd9c3;
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
     font-size:12px;
     height:100vh;
@@ -57,15 +37,13 @@ body {
 
 /* Portrait layout (default) */
 .app {
-    background:#ecebd7; /* 170px x 200px */
+    background:#afd9c3; /* 170px x 200px */
     position:absolute;             /* position in the center of the screen */
-    left:50%;
-    top:50%;
     height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
+    width:100%;                   /* text area width */
     text-align:center;
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
+    /*margin:-115px 0px 0px -112px;  !* offset vertical: half of image height and text area height *!*/
+    /*                               !* offset horizontal: half of text area width *!*/
 }
 
 /* Landscape layout (with min-width) */
@@ -117,50 +95,138 @@ h1 {
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
-.blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
+
+/****BEGIN NAVBAR STYLING****/
+.navbar {
+    text-align: left;
+    padding: 0;
+    height: 70px;
+    background: #6ead9c;
+    border-bottom: 1px solid #ecebd7;
+    margin-bottom: 0;
+    display: inline;
 }
 
-#guest-button {
-    background: #6caebc;
-    color: #ffffff;
-    height: 40px;
-    width: 150px;
-    border-radius: 10px;
-    padding: 10px;
+.nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    height: 60px;
+}
+
+.nav-justified .nav-item {
+    flex-basis: 1;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.navbar-nav {
+    color: #ecebd7;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav>li>a {
+    color: #ecebd7;
+}
+
+.navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 30px;
+}
+
+li.nav-item {
+    font-size: 14px;
+    list-style: none;
+    margin-top: 10px;
+}
+
+/*HOME ICON*/
+#home-icon {
+    margin-left: 15px;
+}
+
+.fa-home:before {
+    content: "\f015";
+    color: #517c72;
+    font-size: xx-large;
+}
+
+a {
+    margin-top: 5px;
+}
+
+/*SEARCH BAR*/
+.form-control {
+    display: block;
+    width: 125%;
+    height: 35px;
+    padding: 16.375rem -0.25rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #F3FDF8;
+    background-clip: padding-box;
+    border: 1px solid #F3FDF8;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     margin-bottom: 5px;
+    margin-top: 6px;
 }
 
-#google-button {
-    background: #FBAB57;
-    color: #ffffff;
-    height: 40px;
-    width: 150px;
-    border-radius: 10px;
-    padding: 10px;
+/*SEARCH ICON*/
+.fa-search:before {
+    content: "\f002";
+    font-size: xx-large;
+    margin-left: 25px;
 }
 
-
-#logo {
-    height: 200px;
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #517c72;
+    text-align: center;
+    /* vertical-align: middle; */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    /* padding: .375rem .75rem; */
+    font-size: 1rem;
+    line-height: 1.5;
+    /* border-radius: .25rem; */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-#unauth-logo {
-    height: 200px;
+.mb-2, .my-2 {
+    margin-bottom: 0!important;
 }
 
-#auth-logo {
-    height: 200px;
+.mt-2, .my-2 {
+    margin-top: 0!important;
+}
+/*****END NAVBAR STYLING*****/
+
+/*****BEGIN SLIDER STYLING*****/
+.bx-viewport {
+    -moz-box-shadow: 0 0 5px #ccc;
+    -webkit-box-shadow: 0 0 5px #ccc;
+    box-shadow: 0 0 5px #ccc;
+    border: 5px solid #ecebd7;
+    background: #ecebd7;
+    height: 715px;
 }
 
-#guest-welcome {
-    font-family: "poiret", Arial, serif;
-    color: #000000;
+.bx-wrapper .bx-controls-direction a {
+    display: none;
 }
+/*****END SLIDER STYLING*****/
 
-#google-welcome {
-    font-family: "poiret", Arial, serif;
-    color: #000000;
-}

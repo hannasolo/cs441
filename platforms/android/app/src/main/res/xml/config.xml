@@ -20,7 +20,7 @@
     <feature name="LaunchMyApp">
         <param name="android-package" value="nl.xservices.plugins.LaunchMyApp" />
     </feature>
-    <name>Drungry</name>
+    <name>Fud</name>
     <description>
         A cocktail/meal recipe app.
     </description>

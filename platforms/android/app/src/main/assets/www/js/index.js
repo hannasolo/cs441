@@ -1,69 +1,68 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 $(document).ready(function () {
-    var provider = new firebase.auth.GoogleAuthProvider();
-    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+    // checkIfLoggedIn();
+    // var googleButton = $("#my-signin2");
 
-    firebase.initializeApp('1:667199072525:web:b5c315c475df7766c26844');
-    console.log(firebase.app().name);
-    // const auth  = firebase.auth();
-    var guestButton = $("#guest-button");
-    var googleButton = $("#google-button");
+    // Check if the user is already logged in
+    // function checkIfLoggedIn()
+    // {
+    //     // If they are not logged in, then log the user in
+    //     if(sessionStorage.getItem('myUserEntity') === null){
+    //         //Redirect to login page, no user entity available in sessionStorage
+    //         signIn();
+    //     } else {
+    //         showPage("home");
+    //         //User already logged in, direct to index
+    //         var userEntity = {};
+    //         userEntity = JSON.parse(sessionStorage.getItem('myUserEntity'));
+    //     }
+    // }
 
-   guestButton.click(function () {
-        $("#index").hide();
-        $("#guest-welcome").show();
-   });
+    // The ID token you need to pass to your backend:
+    // var id_token = googleUser.getAuthResponse().id_token;
+    // console.log("ID Token: " + id_token);
+    //
+    // function onSuccess(googleUser) {
+    //     console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    //     showPage("home");
+    // }
+    // function onFailure(error) {
+    //     console.log(error);
+    // }
+    // function renderButton() {
+    //     gapi.signin2.render(googleButton, {
+    //         'scope': 'profile email',
+    //         'width': 240,
+    //         'height': 50,
+    //         'longtitle': true,
+    //         'theme': 'dark',
+    //         'onsuccess': onSuccess,
+    //         'onfailure': onFailure
+    //     });
+    // }
 
-    googleButton.click( function () {
-        firebase.auth().signInWithEmailAndPassword;
-        firebase.auth().getRedirectResult().then(function(result) {
-            if (result.credential) {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                var token = result.credential.accessToken;
-            }
-            // The signed-in user info.
-            var user = result.user;
-            showGoogleHome();
-        }).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-        });
+    // Controls the Slider for food/drink items
+    $('.bxslider').bxSlider({
+        auto: false,
+        autoControls: false,
+        stopAutoOnClick: true,
+        pager: false
+        // slideWidth: 600
     });
 
-    function showGoogleHome() {
-        $("#index").hide();
-        $("#google-welcome").show();
-    }
+    // function signOut() {
+    //     var auth2 = gapi.auth2.getAuthInstance();
+    //
+    //     auth2.signOut().then(function () {
+    //         console.log('User signed out.');
+    //     });
+    // }
 
-   function signOut()
-    {
-        var auth2 = gapi.auth2.getAuthInstance();
+    function showPage(page) {
+        $(".page").hide();
+        $("#page-" + page).show();
 
-        auth2.signOut().then(function ()
-        {
-            console.log('User signed out.');
-        });
+        if (page !== "index") {
+            $(".navbar").show();
+        }
     }
 });
