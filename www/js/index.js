@@ -66,3 +66,31 @@ $(document).ready(function () {
         }
     }
 });
+function searchBar(){
+    var input, filter, radio, route;
+    var host = "https://cors-anywhere.herokuapp.com/http://csusm-cs-441-chc.appspot.com/apiv1";//general host name
+    radio = document.getElementsByName('options');
+    input = document.getElementById('myinput');
+    filter = input.value;
+    if(radio[0].checked) {
+        console.log(radio[0].value); //name is checked, search by name
+        route = "/recipes_drink/search?names=";
+        filter = filter.replace(" ", "%20"); // replace whitespace
+    }
+    else if(radio[1].checked){
+        console.log(radio[1].value); //tag is checked, search by tag
+        route = "/recipes_drink/search?tags=";
+        filter = filter.replace(" ", "%26");
+    }
+    else {
+        console.log(radio[2].value); //ingredients is checked, search by ingredients
+        filter = filter.replace(" ", "%26");
+        //DOESNT WORK YET
+    }
+    console.log(filter);
+    // $.getJSON(host+route+filter, function(data) {
+    //     console.log(data);
+    // }).fail(function(){
+    //     console.log("failure to load JSON");
+    // })
+}
