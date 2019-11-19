@@ -119,7 +119,7 @@ h1 {
 }
 
 .nav-justified .nav-item {
-    flex-basis: 1;
+    flex-basis: 1px;
     flex-grow: 1;
     text-align: left;
 }
