@@ -136,28 +136,34 @@ $(document).ready(function () {
     //GET JSON
     $.getJSON(host+route, function(data) {
         var one, two, three, randnum;
-        randnum = data.results;
-        one = Math.floor(Math.random() * 10);
-        two = Math.floor(Math.random() * 10);
-        three = Math.floor(Math.random() * 10);
+        randnum = data.results - 1;
+        one = Math.floor(Math.random() * randnum);
+        two = Math.floor(Math.random() * randnum);
+        three = Math.floor(Math.random() * randnum);
         while(one == two){
-            one = Math.floor(Math.random() * 10);
+            one = Math.floor(Math.random() * randnum);
         }
         while(three == two || three == one){
-             three = Math.floor(Math.random() * 10);
+             three = Math.floor(Math.random() * randnum);
         }
         //one
-        img1.src = data.recipes[one].image_url;
+        var src1 = data.recipes[one].image_url;
+        src1 = src1.replace("https://storage.cloud.google.com/", "https://storage.googleapis.com/");
+        img1.src = src1;
         text1.data =  data.recipes[one].name;
         var temptag1 =  data.recipes[one].tags.toString();
         tag1.data = temptag1;
         //two
-        img2.src = data.recipes[two].image_url;
+        var src2 = data.recipes[two].image_url;
+        src2 = src2.replace("https://storage.cloud.google.com/", "https://storage.googleapis.com/");
+        img2.src = src2;
         text2.data =  data.recipes[two].name;
         var temptag2 =  data.recipes[two].tags.toString();
         tag2.data = temptag2;
         //three
-        img3.src = data.recipes[three].image_url;
+        var src3 = data.recipes[three].image_url;
+        src3 = src3.replace("https://storage.cloud.google.com/", "https://storage.googleapis.com/");
+        img3.src = src3;
         text3.data =  data.recipes[three].name;
         var temptag3 =  data.recipes[three].tags.toString();
         tag3.data = temptag3;
@@ -173,6 +179,7 @@ $(document).ready(function () {
 function searchBar(){
     var input, filter, radio, route;
     var host = "https://cors-anywhere.herokuapp.com/http://csusm-cs-441-chc.appspot.com/apiv1";//general host name
+    console.log(src2);
     radio = document.getElementsByName('options');
     input = document.getElementById('myinput');
     filter = input.value;

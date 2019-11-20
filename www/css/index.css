@@ -244,7 +244,7 @@ a {
     position: absolute;
     top: 0;
     left: .5rem;
-    width: 95%;
+    width: 100%;
     height: 30%;
     background-color: white;
     box-shadow: 1px 1px 3px rgba(0,0,0,.25);
@@ -255,7 +255,7 @@ a {
     position: absolute;
     top: 20rem;
     left: .5rem;
-    width: 95%;
+    width: 100%;
     height: 30%;
     background-color: white;
     box-shadow: 1px 1px 3px rgba(0,0,0,.25);
@@ -266,7 +266,7 @@ a {
     position: absolute;
     top: 40rem;
     left: .5rem;
-    width: 95%;
+    width: 100%;
     height: 30%;
     background-color: white;
     box-shadow: 1px 1px 3px rgba(0,0,0,.25);
@@ -274,29 +274,85 @@ a {
 }
 /** IMG INSIDE CARDS **/
 .hidden {display:none;}
-.cardimg {
+.image-container .cardimg {
     top:3px;
-    width: 27rem;
+    left:15px;
+    width: 20rem;
     height: 18rem;
     border-radius: 3rem;
     position: relative;
 }
+/*1*/
+.image-container .after1 .ontop1{
+    position: absolute;
+    top:1rem;
+    left: 5rem;
+    text-align: left;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    color: purple;
+    font-size: 15px;
+}
+.image-container .after1 .ontop2{
+    position: absolute;
+    left: 5rem;
+    text-align: left;
+    font-weight: bold;
+    font-size: 15px;
+    top: 15rem;
+    width: 100%;
+    height: 100%;
+    color: red;
+}
+/*2*/
+.image-container .after2 .ontop1{
+    position: absolute;
+    top:1rem;
+    left: 5rem;
+    text-align: left;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    color: purple;
+    font-size: 15px;
+}
+.image-container .after2 .ontop2{
+    position: absolute;
+    left: 5rem;
+    text-align: left;
+    font-weight: bold;
+    font-size: 15px;
+    top: 15rem;
+    width: 100%;
+    height: 100%;
+    color: red;
+}
+/*3*/
+.image-container .after3 .ontop1{
+    position: absolute;
+    top:1rem;
+    left: 5rem;
+    text-align: left;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    color: purple;
+    font-size: 15px;
+}
+.image-container .after3 .ontop2{
+    position: absolute;
+    left: 5rem;
+    text-align: left;
+    font-weight: bold;
+    font-size: 15px;
+    top: 15rem;
+    width: 100%;
+    height: 100%;
+    color: red;
+}
 /** IMG INSIDE CARDS **/
 
-/** TEXT INSIDE OF CARDS **/
-.boxed1 {
-    font-size: 14px;
-    font-weight: bold;
-    position: fixed;
-    text-align: left;
-}
-.boxed2 {
-    font-size: 14px;
-    font-weight: bold;
-    position: relative;
-    text-align: left;
-    top: 10px;
-    color: green;
-}
+
 /** TEXT INSIDE OF CARDS **/
 /**END INDEX CARD **/
