@@ -141,14 +141,17 @@ h1 {
 }
 
 li.nav-item {
-    font-size: 14px;
+    font-size: 12px;
+    font-style: italic;
+    font-family: sans-serif;
     list-style: none;
     margin-top: 10px;
 }
 
 /*HOME ICON*/
 #home-icon {
-    margin-left: 15px;
+    margin-left: 10px;
+    /*margin: 10px -300px 0px 75px;*/
 }
 
 .fa-home:before {
@@ -229,3 +232,71 @@ a {
     display: none;
 }
 /*****END SLIDER STYLING*****/
+
+/** START INDEX CARD**/
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 1000px;
+    top: 10%;
+}
+.image-container .after1 {
+    position: absolute;
+    top: 0;
+    left: .5rem;
+    width: 95%;
+    height: 30%;
+    background-color: white;
+    box-shadow: 1px 1px 3px rgba(0,0,0,.25);
+    border-radius: 3.25rem;
+    color: purple;
+}
+.image-container .after2 {
+    position: absolute;
+    top: 20rem;
+    left: .5rem;
+    width: 95%;
+    height: 30%;
+    background-color: white;
+    box-shadow: 1px 1px 3px rgba(0,0,0,.25);
+    border-radius: 3.25rem;
+    color: purple;
+}
+.image-container .after3 {
+    position: absolute;
+    top: 40rem;
+    left: .5rem;
+    width: 95%;
+    height: 30%;
+    background-color: white;
+    box-shadow: 1px 1px 3px rgba(0,0,0,.25);
+    border-radius: 3.25rem;
+}
+/** IMG INSIDE CARDS **/
+.hidden {display:none;}
+.cardimg {
+    top:3px;
+    width: 27rem;
+    height: 18rem;
+    border-radius: 3rem;
+    position: relative;
+}
+/** IMG INSIDE CARDS **/
+
+/** TEXT INSIDE OF CARDS **/
+.boxed1 {
+    font-size: 14px;
+    font-weight: bold;
+    position: fixed;
+    text-align: left;
+}
+.boxed2 {
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    text-align: left;
+    top: 10px;
+    color: green;
+}
+/** TEXT INSIDE OF CARDS **/
+/**END INDEX CARD **/

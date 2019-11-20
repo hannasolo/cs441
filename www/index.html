@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!--    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * filesystem: data:">-->
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <!--        <meta name="google-signin-scope" content="profile email">-->
@@ -18,22 +19,14 @@
         <ul class="nav nav-justified">
             <li class="nav-item" id="home-icon"><a href="#page-index" class="fas fa-home"></a></li>
             <li class="nav-item"><input class="form-control mr-sm-2" type="search" id="myinput" placeholder="Search" aria-label="Search"></li>
-            <li class="nav-item"><button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="searchBar()"><i class="fa fa-fw fa-search"></i></button>
-                <!-- Radio buttons -->
-                <label><input type="radio" name="options" value="name" checked="checked"></label> Name
-                <label><input type="radio" name="options" value="tag"></label> Tag
-                <label><input type="radio" name="options" value="ingredients"></label> Ingredients
-                <!-- END RADIO BUTTONS -->
-            </li>
-<!--            <li class="nav-item"><form action="">-->
-<!--            </form></li>-->
+            <li class="nav-item"><button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="searchBar()"><i class="fa fa-fw fa-search"></i></button></li>
         </ul>
     </nav>
-
-
-
-
-
+    <!-- Radio buttons -->
+    <label><input type="radio" name="options" value="name" checked="checked"></label> Name
+    <label><input type="radio" name="options" value="tag"></label> Tag
+    <label><input type="radio" name="options" value="ingredients"></label> Ingredients
+    <!-- END RADIO BUTTONS -->
     <!--LOGIN PAGE-->
     <!--            <div id="page-login" class="page">-->
     <!--              <div id="login-container">-->
@@ -46,9 +39,31 @@
     <!--HOME SCREEN-->
     <div id="page-index" class="page">
         <div class="bxslider">
-            <div><img src="img/cocktailCake.png">
-            </div>
             <div><img src="img/swipe.png"></div>
+            <div class="image-container">
+                <img src="img/cocktailCake.png">
+                <div class="after1">
+                    <table>
+                        <td id="placeholder1"></td>
+                        <td class="boxed1" id="placeholder2"> </td>
+                        <td class="boxed2" id="placeholder3"> </td>
+                    </table></tr>
+                </div>
+                <div class="after2">
+                    <table>
+                        <td id="placeholder4"></td>
+                        <td class="boxed1" id="placeholder5"> </td>
+                        <td class="boxed2" id="placeholder6"> </td>
+                    </table></tr>
+                </div>
+                <div class="after3">
+                    <table>
+                        <td id="placeholder7"></td>
+                        <td class="boxed1" id="placeholder8"> </td>
+                        <td class="boxed2" id="placeholder9"> </td>
+                    </table></tr>
+                </div>
+            </div>
             <div><img src="img/cake.png"></div>
         </div>
     </div>
