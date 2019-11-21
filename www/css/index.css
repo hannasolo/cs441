@@ -234,165 +234,40 @@ a {
 /*****END SLIDER STYLING*****/
 
 /** START INDEX CARD**/
-/*.image-container {*/
-/*    position: relative;*/
-/*    width: 100%;*/
-/*    height: 1000px;*/
-/*    top: 10%;*/
-/*}*/
-/*.image-container .after1 {*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: .5rem;*/
-/*    width: 100%;*/
-/*    height: 30%;*/
-/*    background-color: white;*/
-/*    box-shadow: 1px 1px 3px rgba(0,0,0,.25);*/
-/*    border-radius: 3.25rem;*/
-/*    color: purple;*/
-/*}*/
-/*.image-container .after2 {*/
-/*    position: absolute;*/
-/*    top: 20rem;*/
-/*    left: .5rem;*/
-/*    width: 100%;*/
-/*    height: 30%;*/
-/*    background-color: white;*/
-/*    box-shadow: 1px 1px 3px rgba(0,0,0,.25);*/
-/*    border-radius: 3.25rem;*/
-/*    color: purple;*/
-/*}*/
-/*.image-container .after3 {*/
-/*    position: absolute;*/
-/*    top: 40rem;*/
-/*    left: .5rem;*/
-/*    width: 100%;*/
-/*    height: 30%;*/
-/*    background-color: white;*/
-/*    box-shadow: 1px 1px 3px rgba(0,0,0,.25);*/
-/*    border-radius: 3.25rem;*/
-/*}*/
-/** IMG INSIDE CARDS **/
 .hidden {display:none;}
 /*.image-container .cardimg {*/
 .bx-wrapper .indexcard {
     position: absolute;
-    top: 2rem;
-    left: 2rem;
-    width: 70%;
-    height: 47%;
-    margin: 1rem;
+    top: .5vh;
+    left: 10vw;
+    width: 57vw;
+    height: 30vh;
+    /*margin: 1rem;*/
     background: #fff;
-    border-radius: 2px;
+    border-radius: 8rem;
     display: inline-block;
-    /*border-radius: 3.25rem;*/
-    color: purple;
+    /* border-radius: 3.25rem; */
+    color: #ecead7;
+    border-style: solid;
 }
-
 .indexcard-1 {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 .indexcard-1:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    box-shadow: 0 14px 28px rgba(0,0,0,2.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-.indexcard .cardimg {
-    top:3px;
-    left: 6px;
-    width: 16rem;
-    height: 15rem;
-    border-radius: 3rem;
-    position: relative;
-    float:left;
-    padding-right: 10px;
-    /*z-index: 0;*/
-}
-.indexcard .textbox {
-    float: left;
-    position: relative;
-    text-align: left;
-    /*padding: 0 2rem 2rem 0;*/
-    border-radius: 6px;
-    max-width: 5rem;
-    display: block;
-    border: 1px solid #ccc;
-    word-break: break-word;
-    font-size: 13px;
-    font-style: italic;
-    font-weight: bolder;
-    overflow-wrap: break-word;
-}
-/*!*1*!*/
-/*.image-container .after1 .ontop1{*/
-/*    position: absolute;*/
-/*    top:1rem;*/
-/*    left: 5rem;*/
-/*    text-align: left;*/
-/*    font-weight: bold;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    color: purple;*/
-/*    font-size: 15px;*/
-/*}*/
-/*.image-container .after1 .ontop2{*/
-/*    position: absolute;*/
-/*    left: 5rem;*/
-/*    text-align: left;*/
-/*    font-weight: bold;*/
-/*    font-size: 15px;*/
-/*    top: 15rem;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    color: red;*/
-/*}*/
-/*!*2*!*/
-/*.image-container .after2 .ontop1{*/
-/*    position: absolute;*/
-/*    top:1rem;*/
-/*    left: 5rem;*/
-/*    text-align: left;*/
-/*    font-weight: bold;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    color: purple;*/
-/*    font-size: 15px;*/
-/*}*/
-/*.image-container .after2 .ontop2{*/
-/*    position: absolute;*/
-/*    left: 5rem;*/
-/*    text-align: left;*/
-/*    font-weight: bold;*/
-/*    font-size: 15px;*/
-/*    top: 15rem;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    color: red;*/
-/*}*/
-/*!*3*!*/
-/*.image-container .after3 .ontop1{*/
-/*    position: absolute;*/
-/*    top:1rem;*/
-/*    left: 5rem;*/
-/*    text-align: left;*/
-/*    font-weight: bold;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    color: purple;*/
-/*    font-size: 15px;*/
-/*}*/
-/*.image-container .after3 .ontop2{*/
-/*    position: absolute;*/
-/*    left: 5rem;*/
-/*    text-align: left;*/
-/*    font-weight: bold;*/
-/*    font-size: 15px;*/
-/*    top: 15rem;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    color: red;*/
-/*}*/
 /** IMG INSIDE CARDS **/
-
-
-/** TEXT INSIDE OF CARDS **/
+.indexcard .cardimg {
+    top: 3.5px;
+    left: 6px;
+    width: 56vw;
+    height: 28vh;
+    border-radius: 8rem;
+    position: relative;
+    float: left;
+    padding-right: 10px;
+/* z-index: 0;
+}
 /**END INDEX CARD **/
+
