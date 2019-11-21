@@ -69,73 +69,55 @@ $(document).ready(function () {
     var host = "https://cors-anywhere.herokuapp.com/http://csusm-cs-441-chc.appspot.com/apiv1";//general host name
     var route = "/recipes_drink/search?names="
     var placeholder1 = document.getElementById("placeholder1");
-    var placeholder2 = document.getElementById("placeholder2");
-    var placeholder3 = document.getElementById("placeholder3");
+    // var placeholder2 = document.getElementById("placeholder2");
+    // var placeholder3 = document.getElementById("placeholder3");
     var placeholder4 = document.getElementById("placeholder4");
-    var placeholder5 = document.getElementById("placeholder5");
-    var placeholder6 = document.getElementById("placeholder6");
+    // var placeholder5 = document.getElementById("placeholder5");
+    // var placeholder6 = document.getElementById("placeholder6");
     var placeholder7 = document.getElementById("placeholder7");
-    var placeholder8 = document.getElementById("placeholder8");
-    var placeholder9 = document.getElementById("placeholder9");
+    // var placeholder8 = document.getElementById("placeholder8");
+    // var placeholder9 = document.getElementById("placeholder9");
     // Dynamically create and configure the new image and text
     //1
     var img1 = document.createElement("img");
-    var text1 = document.createTextNode("404");
-    var tag1 = document.createTextNode("404");
+    // var text1 = document.createTextNode("404");
+    // var tag1 = document.createTextNode("404");
     //2
     var img2 = document.createElement("img");
-    var text2 = document.createTextNode("404");
-    var tag2 = document.createTextNode("404");
+    // var text2 = document.createTextNode("404");
+    // var tag2 = document.createTextNode("404");
     //3
     var img3 = document.createElement("img");
-    var text3 = document.createTextNode("404");
-    var tag3 = document.createTextNode("404");
+    // var text3 = document.createTextNode("404");
+    // var tag3 = document.createTextNode("404");
     //1
     img1.classList.add("hidden");
-    placeholder2.appendChild(text1);
-    placeholder3.appendChild(tag1);
-    //2
+    // placeholder2.appendChild(text1);
+    // placeholder3.appendChild(tag1);
+    // 2
     img2.classList.add("hidden");
-    placeholder5.appendChild(text2);
-    placeholder6.appendChild(tag2);
+    // placeholder5.appendChild(text2);
+    // placeholder6.appendChild(tag2);
     //3
     img3.classList.add("hidden");
-    placeholder8.appendChild(text3);
-    placeholder9.appendChild(tag3);
+
     // Set up a load event handler that will unhide the image once its loaded
     img1.addEventListener("load", function(){
         this.classList.remove("hidden");
         this.classList.add("cardimg");
     });
-    text1.addEventListener("load", function(){
-        placeholder2.appendChild(text1); // inject text
-    });
-    tag1.addEventListener("load", function(){
-        placeholder3.appendChild(tag1);
-    });
     img2.addEventListener("load", function(){
         this.classList.remove("hidden");
         this.classList.add("cardimg");
-    });
-    text2.addEventListener("load", function(){
-        placeholder5.appendChild(text2); // inject text
-    });
-    tag2.addEventListener("load", function(){
-        placeholder6.appendChild(tag2);
     });
     img3.addEventListener("load", function(){
         this.classList.remove("hidden");
         this.classList.add("cardimg");
     });
-    text3.addEventListener("load", function(){
-        placeholder8.appendChild(text3); // inject text
-    });
-    tag3.addEventListener("load", function(){
-        placeholder9.appendChild(tag3);
-    });
     //GET JSON
     $.getJSON(host+route, function(data) {
         var one, two, three, randnum;
+        var array
         randnum = data.results - 1;
         one = Math.floor(Math.random() * randnum);
         two = Math.floor(Math.random() * randnum);
@@ -148,25 +130,25 @@ $(document).ready(function () {
         }
         //one
         var src1 = data.recipes[one].image_url;
-        src1 = src1.replace("https://storage.cloud.google.com/", "https://storage.googleapis.com/");
+        // src1 = src1.replace("https://storage.cloud.google.com/", "https://storage.googleapis.com/");
         img1.src = src1;
-        text1.data =  data.recipes[one].name;
-        var temptag1 =  data.recipes[one].tags.toString();
-        tag1.data = temptag1;
-        //two
+        // text1.data =  data.recipes[one].name;
+        // var temptag1 =  data.recipes[one].tags.toString();
+        // tag1.data = temptag1;
+        // two
         var src2 = data.recipes[two].image_url;
-        src2 = src2.replace("https://storage.cloud.google.com/", "https://storage.googleapis.com/");
+        // src2 = src2.replace("https://storage.cloud.google.com/", "https://storage.googleapis.com/");
         img2.src = src2;
-        text2.data =  data.recipes[two].name;
-        var temptag2 =  data.recipes[two].tags.toString();
-        tag2.data = temptag2;
+        // text2.data =  data.recipes[two].name;
+        // var temptag2 =  data.recipes[two].tags.toString();
+        // tag2.data = temptag2;
         //three
         var src3 = data.recipes[three].image_url;
-        src3 = src3.replace("https://storage.cloud.google.com/", "https://storage.googleapis.com/");
+        // src3 = src3.replace("https://storage.cloud.google.com/", "https://storage.googleapis.com/");
         img3.src = src3;
-        text3.data =  data.recipes[three].name;
-        var temptag3 =  data.recipes[three].tags.toString();
-        tag3.data = temptag3;
+        // text3.data =  data.recipes[three].name;
+        // var temptag3 =  data.recipes[three].tags.toString();
+        // tag3.data = temptag3;
     }
     ).fail(function(){
         console.log("failure to load JSON");
@@ -179,7 +161,8 @@ $(document).ready(function () {
 function searchBar(){
     var input, filter, radio, route;
     var host = "https://cors-anywhere.herokuapp.com/http://csusm-cs-441-chc.appspot.com/apiv1";//general host name
-    console.log(src2);
+    // var temp = localStorage.getItem('card1')
+    console.log(temp);
     radio = document.getElementsByName('options');
     input = document.getElementById('myinput');
     filter = input.value;
@@ -199,9 +182,32 @@ function searchBar(){
         //DOESNT WORK YET
     }
     console.log(filter);
-    // $.getJSON(host+route+filter, function(data) {
-    //     console.log(data);
-    // }).fail(function(){
-    //     console.log("failure to load JSON");
-    // })
+    $.getJSON(host+route+filter, function(data) {
+        console.log(data);
+    }).fail(function(){
+        console.log("failure to load JSON");
+    })
+}
+function selectCard(){
+    console.log(filter);
+    $.getJSON(host+route+filter, function(data) {
+        console.log(data);
+    }).fail(function(){
+        console.log("failure to load JSON");
+    })
+}
+
+function nextPage() { $(document).ready(function () {
+    console.log("next page button pressed");
+    placeholder1 = document.getElementById("placeholder1");
+    img = document.createElement("img");
+    img.classList.add("hidden");
+    img.addEventListener("load", function(){
+        this.classList.remove("hidden");
+        this.classList.add("cardimg");
+    });
+    img.src = "https://storage.googleapis.com/drungry_images/drinks/3_earthquake.png"
+
+    placeholder1.replaceChild(img,placeholder1.childNodes[0]);
+});
 }
