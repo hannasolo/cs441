@@ -239,12 +239,12 @@ a {
 .bx-wrapper .indexcard {
     position: absolute;
     top: .5vh;
-    left: 10vw;
-    width: 57vw;
+    left: 20vw;
+    width: 56vw;
     height: 30vh;
-    /*margin: 1rem;*/
+    /* margin: 1rem; */
     background: #fff;
-    border-radius: 8rem;
+    border-radius: 50rem;
     display: inline-block;
     /* border-radius: 3.25rem; */
     color: #ecead7;
@@ -263,10 +263,10 @@ a {
     left: 6px;
     width: 56vw;
     height: 28vh;
-    border-radius: 8rem;
+    border-radius: 50rem;
     position: relative;
     float: left;
-    padding-right: 10px;
+    padding-right: 13px;
 /* z-index: 0;
 }
 /**END INDEX CARD **/

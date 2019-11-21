@@ -78,8 +78,8 @@ $(document).ready(function () {
             this.classList.add("cardimg");
         });}
     $.getJSON(host+route, function(data) {
-        var random = data.results-1;
-        for (i = 0; i < data.results-1; i++){
+        var random = data.results;
+        for (i = 0; i < data.results; i++){
             x = Math.floor(Math.random() * random);
             while(arr.includes(x)){
                 x = Math.floor(Math.random() * random);
@@ -95,6 +95,8 @@ $(document).ready(function () {
         image[0].src = data.recipes[arr[0]].image_url;
         image[1].src = data.recipes[arr[1]].image_url;
         image[2].src = data.recipes[arr[2]].image_url;
+        localStorage.setItem("drink_count", data.results);
+        localStorage.setItem("page_index", 1);
     }).fail(function(){console.log("failure to load JSON");});
     placeholder[0].appendChild(image[0]);
     placeholder[1].appendChild(image[1]);
@@ -105,23 +107,22 @@ function searchBar(){
     var input, filter, radio, route;
     var host = "https://cors-anywhere.herokuapp.com/http://csusm-cs-441-chc.appspot.com/apiv1";//general host name
     // var temp = localStorage.getItem('card1')
-    console.log(temp);
     radio = document.getElementsByName('options');
     input = document.getElementById('myinput');
     filter = input.value;
     if(radio[0].checked) {
         console.log(radio[0].value); //name is checked, search by name
         route = "/recipes_drink/search?names=";
-        filter = filter.replace(" ", "%20"); // replace whitespace
+        filter = filter.replace(/\s/g, "%20"); // replace whitespace
     }
     else if(radio[1].checked){
         console.log(radio[1].value); //tag is checked, search by tag
         route = "/recipes_drink/search?tags=";
-        filter = filter.replace(" ", "%26");
+        filter = filter.replace(/\s/g, "%26");
     }
     else {
         console.log(radio[2].value); //ingredients is checked, search by ingredients
-        filter = filter.replace(" ", "%26");
+        filter = filter.replace(/\s/g, "%26");
         //DOESNT WORK YET
     }
     console.log(filter);
@@ -139,18 +140,34 @@ function selectCard(){
         console.log("failure to load JSON");
     })
 }
-
-function nextPage() { $(document).ready(function () {
-    console.log("next page button pressed");
-    placeholder1 = document.getElementById("placeholder1");
-    img = document.createElement("img");
-    img.classList.add("hidden");
-    img.addEventListener("load", function(){
-        this.classList.remove("hidden");
-        this.classList.add("cardimg");
-    });
-    img.src = "https://storage.googleapis.com/drungry_images/drinks/3_earthquake.png"
-
-    placeholder1.replaceChild(img,placeholder1.childNodes[0]);
-});
-}
+function drink_page(clicked) { $(document).ready(function () {
+    console.log("clicked the " + clicked + " button");
+    var img = [], placeholder = [], page_index, drink_count, count, direction;
+    if(clicked == "next"){direction = 1;}
+    else{direction = -1;}
+    page_index = parseInt(localStorage.getItem("page_index"));
+    drink_count = parseInt(localStorage.getItem("drink_count"));
+    count = ((page_index+direction) *3) -2;
+    if(count < 0 || count > drink_count){ return; } //maybe grey out the button or something Idk
+    console.log("page_i = " + page_index + " drink_c = " + drink_count + " count = " + count);
+    for(i = 0; i < 3; i++){
+        if((count + i) < drink_count){
+            placeholder[i] = document.getElementById("placeholder"+i);
+            img[i] = document.createElement("img");
+            img[i].classList.add("hidden");
+            img[i].addEventListener("load", function(){
+                this.classList.remove("hidden");
+                this.classList.add("cardimg");
+            });
+            var img_key = "img" + (count+i);
+            var img_url = localStorage.getItem(img_key);
+            console.log(img_url);
+            img[i].src = img_url;
+            placeholder[i].replaceChild(img[i],placeholder[i].childNodes[0]);
+        }
+    }
+    if((count + (direction * 2))<drink_count) { //
+        localStorage.removeItem("page_index");
+        localStorage.setItem("page_index", (page_index + direction));//
+    }
+});}
