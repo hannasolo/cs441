@@ -208,11 +208,9 @@ a {
     /* border-radius: .25rem; */
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-
 .mb-2, .my-2 {
     margin-bottom: 0!important;
 }
-
 .mt-2, .my-2 {
     margin-top: 0!important;
 }
@@ -225,14 +223,12 @@ a {
     box-shadow: 0 0 5px #ccc;
     border: 5px solid #ecebd7;
     background: #ecebd7;
-    height: 1030px !important;
+    height: 100vh !important;
 }
-
 .bx-wrapper .bx-controls-direction a {
     display: none;
 }
 /*****END SLIDER STYLING*****/
-
 /** START INDEX CARD**/
 .hidden {display:none;}
 /*.image-container .cardimg {*/
@@ -244,7 +240,7 @@ a {
     height: 30vh;
     /* margin: 1rem; */
     background: #fff;
-    border-radius: 50rem;
+    border-radius: 5%;
     display: inline-block;
     /* border-radius: 3.25rem; */
     color: #ecead7;
@@ -259,15 +255,43 @@ a {
 }
 /** IMG INSIDE CARDS **/
 .indexcard .cardimg {
-    top: 3.5px;
-    left: 6px;
-    width: 56vw;
-    height: 28vh;
-    border-radius: 50rem;
+    top: 5px;
+    left: 5px;
+    width: 50vw;
+    height: 26vh;
+    border-radius: 100%;
     position: relative;
-    float: left;
-    padding-right: 13px;
-/* z-index: 0;
+    border-style: double;
+}
+.cardimg .imgbutton{
+    position:absolute;
+    z-index: 1;
+    opacity: 0;
+}
+.bx-wrapper .resultspage{
+    height: 100vh;
+}
+.resultspage .stepsid{
+    position: absolute;
+    top: 46vh;
+    text-align: left;
+    font-size: 18px;
+    color: #343a40;
+    font-style: oblique;
+}
+.resultspage .nameid{
+    position: relative;
+    top: 9px;
+    font-size: 20px;
+    color: red;
+    font-style: oblique;
+}
+.resultspage .tagsid{
+    position: absolute;
+    top: 35vh;
+    font-size: 20px;
+    color: #3a55ff;
+    font-style: oblique;
 }
 /**END INDEX CARD **/
 

@@ -1,74 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * filesystem: data:">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <!--        <meta name="google-signin-scope" content="profile email">-->
-    <!--        <meta name="google-signin-client_id" content="667199072525-h7t5lh3t13fdbg2p8mn7huhed9fkj3tp.apps.googleusercontent.com">-->
-    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    <!--    w3schoolsstylsheet-->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>Fud</title>
-</head>
-<body>
-<div class="app">
-    <nav class="navbar navbar-expand-lg">
-        <ul class="nav nav-justified">
-            <li class="nav-item" id="home-icon"><a href="#page-index" class="fas fa-home"></a></li>
-            <li class="nav-item"><input class="form-control mr-sm-2" type="search" id="myinput" placeholder="Search" aria-label="Search"></li>
-            <li class="nav-item"><button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="searchBar()"><i class="fa fa-fw fa-search"></i></button></li>
-        </ul>
-    </nav>
-    <!-- Radio buttons -->
-    <label><input type="radio" name="options" value="name" checked="checked"></label> Name
-    <label><input type="radio" name="options" value="tag"></label> Tag
-    <label><input type="radio" name="options" value="ingredients"></label> Ingredients
-    <!-- END RADIO BUTTONS -->
-    <!--LOGIN PAGE-->
-    <!--            <div id="page-login" class="page">-->
-    <!--              <div id="login-container">-->
-    <!--                  <picture>-->
-    <!--                      <img src="img/martiniGlassLogo.png" id="logo">-->
-    <!--                  </picture>-->
-    <!--&lt;!&ndash;                  <div class="my-signin2"></div>&ndash;&gt;-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--HOME SCREEN-->
-    <div id="page-index" class="page">
-        <div class="bxslider">
-            <div><img src="img/swipe.png" style="height:100vh;width:100vw;"></div>
-            <div><img src="img/cocktailCake.png" style="height:100vh;width:100vw;">
-                <div class="indexcard indexcard-1">
-                    <div class="cardimg" id="placeholder0"></div>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * filesystem: data:">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <!--        <meta name="google-signin-scope" content="profile email">-->
+        <!--        <meta name="google-signin-client_id" content="667199072525-h7t5lh3t13fdbg2p8mn7huhed9fkj3tp.apps.googleusercontent.com">-->
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+        <!--    w3schoolsstylsheet-->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <title>Fud</title>
+    </head>
+    <body>
+    <div data-role="page" id="page1">
+        <div class="app">
+            <nav class="navbar navbar-expand-lg">
+                <ul class="nav nav-justified">
+                    <li class="nav-item" id="home-icon"><a class="fas fa-home"></a></li>
+                    <li class="nav-item"><input class="form-control mr-sm-2" type="search" id="myinput" placeholder="Search" aria-label="Search"></li>
+                    <li class="nav-item"><button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="searchBar()"><i class="fa fa-fw fa-search"></i></button></li>
+                </ul>
+            </nav>
+            <!-- Radio buttons -->
+            <label><input type="radio" name="options" value="name" checked="checked"></label> Name
+            <label><input type="radio" name="options" value="tag"></label> Tag
+            <label><input type="radio" name="options" value="ingredients"></label> Ingredients
+            <!-- END RADIO BUTTONS -->
+            <!--LOGIN PAGE-->
+            <!--            <div id="page-login" class="page">-->
+            <!--              <div id="login-container">-->
+            <!--                  <picture>-->
+            <!--                      <img src="img/martiniGlassLogo.png" id="logo">-->
+            <!--                  </picture>-->
+            <!--&lt;!&ndash;                  <div class="my-signin2"></div>&ndash;&gt;-->
+            <!--              </div>-->
+            <!--            </div>-->
+            <!--HOME SCREEN-->
+            <div class="bxslider">
+                <div><img src="img/cake.png" alt="food page"></div>
+                <div><img src="img/swipe.png" alt="homepage" id="homepage"></div>
+                <div><img src="img/cocktailCake.png" alt="drinkpage" style="height:100vh;width:100vw;">
+                    <div class="indexcard indexcard-1"><div class="cardimg" id="placeholder0"><input class="cardimg imgbutton" type="submit" id="0" onclick="selectCard(this.id)"></div></div>
+                    <div class="indexcard indexcard-1" style="top:33vh;" ><div class="cardimg" id="placeholder1"><input class="cardimg imgbutton" type="submit" id="1" onclick="selectCard(this.id)"></div></div>
+                    <div class="indexcard indexcard-1" style="top:66vh;" ><div class="cardimg" id="placeholder2"><input class="cardimg imgbutton" type="submit" id="2" onclick="selectCard(this.id)"></div></div>
+                    <button class="w3-button w3-circle w3-ripple w3-black" id = "next" style="position:absolute;left:77vw;top:1vh;z-index: 0;" onclick="navigate_drinks(this.id)">+</button>
+                    <button class="w3-button w3-circle w3-ripple  w3-teal" id = "prev" style="position:absolute;left:7vw;top:1vh;z-index: 0;" onclick="navigate_drinks(this.id)">-</button>
                 </div>
-                <div class="indexcard indexcard-1" style="top:36vh;" >
-                    <div class="cardimg" id="placeholder1"></div>
+                <div class="resultspage">
+                    <div class="indexcard" style="border-radius:0;height:35vh;width:80vw;left:0;">
+                        <div class="cardimg" id="placeholder3"></div>
+                        <div class="nameid" id="name4"></div>
+                        <div class="tagsid" id="tags4"></div>
+                        <div class="stepsid" id="steps4"></div>
+                    </div>
                 </div>
-                <div class="indexcard indexcard-1" style="top:71vh;" >
-                    <div class="cardimg" id="placeholder2"></div>
-                </div>
-                <div class="indexcard" style="left:77vw;top:1vh;height:5.6vh;width:11.5vw;">
-                    <button class="w3-button w3-circle w3-black" id = "next" onclick="drink_page(this.id)">+</button></div>
-                <div class="indexcard" style="left:7vw;top:1vh;height:5.6vh;width:11.5vw;">
-                    <button class="w3-button w3-circle w3-teal" id = "prev" onclick="drink_page(this.id)">-</button></div>
             </div>
-            <div><img src="img/cake.png"></div>
         </div>
     </div>
-</div>
-
-<!--        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-<!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<script type="text/javascript" src="js/index.js"></script>
-</body>
+    <!--        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    </body>
 </html>
 
