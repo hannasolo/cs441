@@ -61,8 +61,8 @@ $(document).ready(function () {
         speed: 500,
         onSlideAfter: function($slideElm, oldIndex, newIndex) { save($slideElm, oldIndex, newIndex);}
     });
-    window.gotoButton = function(){
-        slider.goToSlide(3);
+    window.gotoButton = function(pg){
+        slider.goToSlide(pg);
     };
     // function signOut() {
     //     var auth2 = gapi.auth2.getAuthInstance();
@@ -114,6 +114,9 @@ $(document).ready(function () {
     }).fail(function(){console.log('failure to load JSON');});
     //** ON PAGE LOAD LOAD JSON AND IMAGES AND STORE URLS LOCALLY **//
 });
+function gotopage(clicked) {
+    gotoButton(2);
+}
 //SEARCH BAR FUNCTION
 function searchBar(){
     var input, filter, radio, route;
@@ -187,7 +190,7 @@ function selectCard(pressed){
     }).fail(function(){
         console.log('failure to load JSON');
     });
-    setTimeout(function(){  gotoButton(); }, 1000);//go to next slide
+    setTimeout(function(){  gotoButton(3); }, 1000);//go to next slide
 }
 //DRINK PAGE FOR NAVAGATION
 function navigate_drinks(clicked) { $(document).ready(function () {
