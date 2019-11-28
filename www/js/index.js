@@ -115,7 +115,9 @@ $(document).ready(function () {
     //** ON PAGE LOAD LOAD JSON AND IMAGES AND STORE URLS LOCALLY **//
 });
 function gotopage(clicked) {
-    gotoButton(2);
+    if(clicked === 'back_to_drinks1' || clicked === 'back_to_drinks2') {
+        gotoButton(2);
+    }
 }
 //SEARCH BAR FUNCTION
 function searchBar(){
@@ -143,9 +145,25 @@ function searchBar(){
     console.log(filter);
     $.getJSON(host+route+filter, function(data) {
         console.log(data);
+        drink_search_page = document.getElementById('drink_search_page');
+        var children = [], t = [], text;
+        for(i=0; i< data.results; i++){
+            children[i] = document.createElement("H1");
+            text = data.recipes[i].name;
+            t[i] = document.createTextNode(text);
+            children[i].appendChild(t[i]);
+            drink_search_page.appendChild(children[i]);
+        }
     }).fail(function(){
         console.log('failure to load JSON');
-    })
+    }); setTimeout(function(){  gotoButton(4); }, 1000);//go to next slide
+}
+//CLEAR FUNCTION
+function clear(clicked){
+    parent = document.getElementById('drink_search_page');
+    for(i=1; i<parent.length; i++){
+        parent.removeChild(parent.childNodes[i]);
+    }
 }
 //SELECT CARD
 function selectCard(pressed){
