@@ -11,7 +11,7 @@ import os
 # Application Entry Point
 app = Flask(__name__)
 
-# Grab login credentials for CloudSQL
+# Grab login credentialfor CloudSQL
 if os.environ.get('GAE_ENV'):
     app.config.from_json('secrets_gae.json')
 else:
@@ -38,15 +38,19 @@ _API_VERSION_ = 1
 def recipes_drink():
     if request.method == 'POST':
         json_obj = request.get_json()
-        name = json_obj['name']
-        #image_url = request.form.get('image_url')
+        #image_url = json_obj['image_url']
+        #steps_url = json_obj['steps_url']
+        #tags = json_obj['tags']
+        #ingredients = json_obj['ingredients']
 
         con = mysql.connect
         cur = con.cursor()
 
-        cur.execute(f'''
-        INSERT INTO drinkrecipes(name) VALUES ('AAA');        
-        ''')
+        if 'name' in json_obj:
+            name = json_obj['name']
+            cur.execute(f'''
+            INSERT INTO drinkrecipes(name) VALUES ('{json_obj['name']}');        
+            ''')
 
         con.commit()
         cur.close()
