@@ -151,7 +151,9 @@ function searchBar(){
             children[i] = document.createElement("H1");
             text = data.recipes[i].name;
             t[i] = document.createTextNode(text);
+            // t[i].style = "margin:50px;";
             children[i].appendChild(t[i]);
+            children[i].style = "margin:40px 5px;";
             drink_search_page.appendChild(children[i]);
         }
     }).fail(function(){

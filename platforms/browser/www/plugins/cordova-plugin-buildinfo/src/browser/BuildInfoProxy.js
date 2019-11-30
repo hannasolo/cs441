@@ -35,7 +35,7 @@ BuildInfoProxy = {
 
         try {
             /* <EMBED_CODE> */
-            const json = {"debug":true,"buildDate":"2019-11-18T19:49:20.583Z","packageName":"com.hannalynn.drungry","basePackageName":"com.hannalynn.drungry","name":"Fud","displayName":"Fud","version":"1.0.0","versionCode":"1.0.0"};
+            const json = {"debug":true,"buildDate":"2019-11-30T18:27:29.450Z","packageName":"com.hannalynn.drungry","basePackageName":"com.hannalynn.drungry","name":"Fud","displayName":"Fud","version":"1.0.0","versionCode":"1.0.0"};
             /* </EMBED_CODE> */
 
             var ret = {

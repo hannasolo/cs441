@@ -59,12 +59,11 @@ body {
 h1 {
     font-size:24px;
     font-weight:normal;
-    margin:0px;
+    margin: 0px;
     overflow:visible;
     padding:0px;
     text-align:center;
 }
-
 .event {
     border-radius:4px;
     -webkit-border-radius:4px;
@@ -119,7 +118,7 @@ h1 {
 }
 
 .nav-justified .nav-item {
-    flex-basis: 1;
+    flex-basis: 1px;
     flex-grow: 1;
     text-align: left;
 }
@@ -141,14 +140,17 @@ h1 {
 }
 
 li.nav-item {
-    font-size: 14px;
+    font-size: 12px;
+    font-style: italic;
+    font-family: sans-serif;
     list-style: none;
     margin-top: 10px;
 }
 
 /*HOME ICON*/
 #home-icon {
-    margin-left: 15px;
+    margin-left: 10px;
+    /*margin: 10px -300px 0px 75px;*/
 }
 
 .fa-home:before {
@@ -164,7 +166,7 @@ a {
 /*SEARCH BAR*/
 .form-control {
     display: block;
-    width: 125%;
+    width: 100%;
     height: 35px;
     padding: 16.375rem -0.25rem;
     font-size: 1rem;
@@ -184,7 +186,7 @@ a {
 .fa-search:before {
     content: "\f002";
     font-size: xx-large;
-    margin-left: 25px;
+    /*margin-left: 25px;*/
 }
 
 .btn {
@@ -205,11 +207,9 @@ a {
     /* border-radius: .25rem; */
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-
 .mb-2, .my-2 {
     margin-bottom: 0!important;
 }
-
 .mt-2, .my-2 {
     margin-top: 0!important;
 }
@@ -222,11 +222,91 @@ a {
     box-shadow: 0 0 5px #ccc;
     border: 5px solid #ecebd7;
     background: #ecebd7;
-    height: 715px;
+    height: 100vh !important;
 }
-
 .bx-wrapper .bx-controls-direction a {
     display: none;
 }
 /*****END SLIDER STYLING*****/
+/** START INDEX CARD**/
+
+/*.image-container .cardimg {*/
+.bx-wrapper .indexcard {
+    position: absolute;
+    top: .5vh;
+    left: 20vw;
+    width: 56vw;
+    height: 30vh;
+    background: #fff;
+    border-radius: 5%;
+    display: inline-block;
+    color: #ecead7;
+    border-style: solid;
+}
+.indexcard-1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.bx-wrapper .indexcard2 {
+    position: relative;
+    top: .5vh;
+    left: 20vw;
+    width: 56vw;
+    height: 30vh;
+    background: #fff;
+    border-radius: 5%;
+    display: inline-block;
+    color: #ecead7;
+    border-style: solid;
+}
+.indexcard-1:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,2.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+/** IMG INSIDE CARDS **/
+.indexcard .cardimg {
+    top: 5px;
+    left: 5px;
+    width: 50vw;
+    height: 26vh;
+    border-radius: 100%;
+    position: relative;
+    border-style: double;
+}
+.visible { visibility: visible;opacity: 1;transition: opacity 2s linear; }
+.hidden { visibility: hidden;opacity: 0;transition: visibility 0s 1s, opacity 1s linear; }
+/*@keyframes fadeInOpacity { 0% {opacity: 0;} 100% {opacity: 1;} }*/
+/*@keyframes fadeOutOpacity { 100% {opacity: 1;} 0% {opacity: 0;} }*/
+.cardimg .imgbutton{
+    position:absolute;
+    z-index: 1;
+    opacity: 0;
+}
+
+.bx-wrapper .resultspage{
+    height: 100vh;
+}
+.resultspage .stepsid{
+    position: absolute;
+    top: 46vh;
+    text-align: left;
+    font-size: 18px;
+    color: #343a40;
+    font-style: oblique;
+}
+.resultspage .nameid{
+    position: relative;
+    top: 9px;
+    font-size: 20px;
+    color: red;
+    font-style: oblique;
+}
+.resultspage .tagsid{
+    position: absolute;
+    top: 35vh;
+    font-size: 20px;
+    color: #3a55ff;
+    font-style: oblique;
+}
+
+/**END INDEX CARD **/
 
