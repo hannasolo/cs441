@@ -151,19 +151,21 @@ function searchBar(){
             children[i] = document.createElement("H1");
             text = data.recipes[i].name;
             t[i] = document.createTextNode(text);
-            // t[i].style = "margin:50px;";
             children[i].appendChild(t[i]);
-            children[i].style = "margin:40px 5px;";
+            children[i].style = "margin:40px 5px;color:blue;";
             drink_search_page.appendChild(children[i]);
         }
     }).fail(function(){
         console.log('failure to load JSON');
     }); setTimeout(function(){  gotoButton(4); }, 1000);//go to next slide
 }
+
 //CLEAR FUNCTION
-function clear(clicked){
+function clearFunction(clicked){
     parent = document.getElementById('drink_search_page');
-    for(i=1; i<parent.length; i++){
+    console.log("clear button");
+    console.log(parent.childElementCount);
+    for(i=parent.childElementCount-1; i>=0; i--) {
         parent.removeChild(parent.childNodes[i]);
     }
 }
