@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.hannalynn.drungry;
+package com.hannalynn.NEWdrungry;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.hannalynn.drungry" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.hannalynn.NEWdrungry" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="BrowserTab">
         <param name="android-package" value="com.google.cordova.plugin.browsertab.BrowserTab" />
     </feature>
@@ -42,5 +42,6 @@
         </host>
     </universal-links>
     <allow-intent href="market:*" />
+    <icon src="res/icon.png" />
     <preference name="loglevel" value="DEBUG" />
 </widget>
