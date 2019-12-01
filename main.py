@@ -215,7 +215,7 @@ def get_food():
 @Result: Returns a tuple of ({{id}}, {{name}}, {{last_name}})
 '''
 
-
+"""
 @app.route('/test/<int:id>', methods=['GET'])
 def example(id):
     cur = mysql.connection.cursor()
@@ -223,12 +223,9 @@ def example(id):
     rv = cur.fetchall()
 
     return str(rv)
+"""
 
 
 @app.route('/')
-def users():
-    cur = mysql.connection.cursor()
-    cur.execute(''' SELECT * FROM mock_table WHERE first_name="tim"''')
-    rv = cur.fetchall()
-
-    return str(rv)
+def index():
+    return str('Welcome to the drink recipe API')
