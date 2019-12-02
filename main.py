@@ -75,9 +75,10 @@ def recipes_drink():
         except Exception as e:
             # Duplicate data conflict
             if 1062 in e.args:
-                return jsonify({'results': str(e), 'response': 409}), 409
+                return jsonify({'results': "Duplicate Data", 'error': e.args[0], 'response': 409}), 409
             else:
-                return jsonify({'results': str(e), 'response': 400}), 400
+                return jsonify({'results': "Please contact the administrator",
+                                'error': e.args[0], 'response': 400}), 400
 
         primary_key = cur_insert.lastrowid
 
