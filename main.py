@@ -96,9 +96,7 @@ def recipes_drink():
             rv_tag_search = tag_search.fetchall()
             tag_search.close()
 
-            query_tag_insert_params = []
-            for name, tag_id in rv_tag_search:
-                query_tag_insert_params.extend([primary_key, tag_id])
+            query_tag_insert_params = [element for pack in rv_tag_search for element in [primary_key, pack[1]]]
 
             query_tag_insert_values = ','.join(['(%s, %s)' for _ in rv_tag_search])
             query_tag_insert = f'''
@@ -110,7 +108,30 @@ def recipes_drink():
             tag_insert.close()
 
         if 'ingredients' in json_obj:
-            pass
+            ingredient_search = con.cursor()
+            ingredient_insert = con.cursor()
+
+            ingredients = json_obj['ingredients']
+
+            query_ingredient_search_values = ','.join(['%s' for _ in ingredients])
+            query_ingredient_search = f'''
+            SELECT name, ingredient_id FROM ingredients WHERE name IN ({query_ingredient_search_values});
+            '''
+
+            ingredient_search.execute(query_ingredient_search, tuple(ingredients))
+            rv_ingredient_search = ingredient_search.fetchall()
+            ingredient_search.close()
+
+            ingredient_insert_values = ','.join(['(%s, %s)' for _ in ingredients])
+            ingredient_insert_params = [element for pack in rv_ingredient_search for element in [primary_key, pack[1]]]
+
+            query_ingredient_insert = f'''
+            INSERT INTO ingredientdrinkrecipes(drinkrecipe_id, ingredient_id) VALUES {ingredient_insert_values};
+            '''
+
+            ingredient_insert.execute(query_ingredient_insert, tuple(ingredient_insert_params))
+            con.commit()
+            ingredient_insert.close()
 
     return jsonify({'results': 'POST RECEIVED'}), 201
 
