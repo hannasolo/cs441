@@ -38,26 +38,81 @@ _API_VERSION_ = 1
 def recipes_drink():
     if request.method == 'POST':
         json_obj = request.get_json()
-        #image_url = json_obj['image_url']
-        #steps_url = json_obj['steps_url']
-        #tags = json_obj['tags']
-        #ingredients = json_obj['ingredients']
 
-        con = mysql.connect
-        cur = con.cursor()
+        drink_columns = []
+        drink_values = []
 
         if 'name' in json_obj:
-            name = json_obj['name']
-            cur.execute(f'''
-            INSERT INTO drinkrecipes(name) VALUES ('{json_obj['name']}');        
-            ''')
+            drink_columns.append('name')
+            drink_values.append(json_obj['name'])
 
-        con.commit()
-        cur.close()
+        if 'image_url' in json_obj:
+            drink_columns.append('image_url')
+            drink_values.append(json_obj['image_url'])
 
-        print(name)
+        if 'steps_url' in json_obj:
+            drink_columns.append('steps')
+            drink_values.append(json_obj['steps_url'])
 
-    return 'POST RECEIVED'
+        # Attempt to insert data into the database
+        con = mysql.connect
+
+        try:
+            cur_insert = con.cursor()
+
+            drink_columns = ','.join(drink_columns)
+            query_values = ','.join(['%s' for _ in drink_values])
+
+            query_drink = f'''
+            INSERT INTO drinkrecipes({drink_columns}) VALUES ({query_values});
+            '''
+
+            cur_insert.execute(query_drink, tuple(drink_values))
+
+            con.commit()
+            cur_insert.close()
+
+        except Exception as e:
+            # Duplicate data conflict
+            if 1062 in e.args:
+                return jsonify({'results': str(e), 'response': 409}), 409
+            else:
+                return jsonify({'results': str(e), 'response': 400}), 400
+
+        primary_key = cur_insert.lastrowid
+
+        if 'tags' in json_obj:
+            tag_search = con.cursor()
+            tag_insert = con.cursor()
+
+            tags = json_obj['tags']
+
+            query_tag_search_values = ','.join(['%s' for _ in tags])
+            query_tag_search = f'''
+                SELECT name, tag_id FROM tags WHERE name IN ({query_tag_search_values});
+            '''
+
+            tag_search.execute(query_tag_search, tuple(tags))
+            rv_tag_search = tag_search.fetchall()
+            tag_search.close()
+
+            query_tag_insert_params = []
+            for name, tag_id in rv_tag_search:
+                query_tag_insert_params.extend([primary_key, tag_id])
+
+            query_tag_insert_values = ','.join(['(%s, %s)' for _ in rv_tag_search])
+            query_tag_insert = f'''
+            INSERT INTO drinkrecipestags(drinkrecipe_id, tag_id) VALUES {query_tag_insert_values};
+            '''
+
+            tag_insert.execute(query_tag_insert, tuple(query_tag_insert_params))
+            con.commit()
+            tag_insert.close()
+
+        if 'ingredients' in json_obj:
+            pass
+
+    return jsonify({'results': 'POST RECEIVED'}), 201
 
 
 # Drink recipe Search
