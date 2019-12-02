@@ -33,7 +33,18 @@ _API_VERSION_ = 1
                      API VER 1
 =========================================================
 '''
-# Post data to drink database
+
+'''
+@Purpose: Insert new drink recipes into database
+@Params:    JSON sent through the request body,
+            {
+                "name": <name>,
+                "tags": [<tag_name>, <tag_name>, <tag_name>],
+                "ingredients": [<ingredient_name>, <ingredient_name>, <ingredient_name>]
+            }
+@Return: Returns the results of the operation, "POST RECIEVED" on success, "ERROR" otherwise.
+@Example:{{base_url}}/recipes_drink
+'''
 @app.route(f'/apiv{_API_VERSION_}/recipes_drink', methods=['POST'])
 def recipes_drink():
     if request.method == 'POST':
@@ -82,12 +93,15 @@ def recipes_drink():
 
         primary_key = cur_insert.lastrowid
 
+        # Bind tags to recipe
         if 'tags' in json_obj:
             tag_search = con.cursor()
             tag_insert = con.cursor()
 
             tags = json_obj['tags']
 
+            # Search for tag id for items
+            # Will ignore anything that isn't in tags
             query_tag_search_values = ','.join(['%s' for _ in tags])
             query_tag_search = f'''
                 SELECT name, tag_id FROM tags WHERE name IN ({query_tag_search_values});
@@ -97,6 +111,7 @@ def recipes_drink():
             rv_tag_search = tag_search.fetchall()
             tag_search.close()
 
+            # Pack the params to be sanitized
             query_tag_insert_params = [element for pack in rv_tag_search for element in [primary_key, pack[1]]]
 
             query_tag_insert_values = ','.join(['(%s, %s)' for _ in rv_tag_search])
@@ -108,12 +123,15 @@ def recipes_drink():
             con.commit()
             tag_insert.close()
 
+        # Bind ingredients to recipe
         if 'ingredients' in json_obj:
             ingredient_search = con.cursor()
             ingredient_insert = con.cursor()
 
             ingredients = json_obj['ingredients']
 
+            # Search for tag id for items
+            # Will ignore anything that isn't in tags
             query_ingredient_search_values = ','.join(['%s' for _ in ingredients])
             query_ingredient_search = f'''
             SELECT name, ingredient_id FROM ingredients WHERE name IN ({query_ingredient_search_values});
@@ -124,6 +142,7 @@ def recipes_drink():
             ingredient_search.close()
 
             ingredient_insert_values = ','.join(['(%s, %s)' for _ in ingredients])
+            # Pack the params to be sanitized
             ingredient_insert_params = [element for pack in rv_ingredient_search for element in [primary_key, pack[1]]]
 
             query_ingredient_insert = f'''
