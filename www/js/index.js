@@ -80,7 +80,7 @@ $(document).ready(function () {
 
     //** ON PAGE LOAD LOAD JSON AND IMAGES AND STORE URLS LOCALLY **//
     var arr=[], placeholder=[], image=[];
-    var host = 'https://cors-anywhere.herokuapp.com/http://csusm-cs-441-chc.appspot.com/apiv1';//general host name
+    var host = 'http://csusm-cs-441-chc.appspot.com/apiv1';//general host name
     var route = '/recipes_drink/search?names=&results=15';
     for(i = 0; i < 3; i++){
         placeholder[i] = document.getElementById('placeholder'+i);
@@ -122,7 +122,7 @@ function gotopage(clicked) {
 //SEARCH BAR FUNCTION
 function searchBar(){
     var input, filter, radio, route;
-    var host = 'https://cors-anywhere.herokuapp.com/http://csusm-cs-441-chc.appspot.com/apiv1';//general host name
+    var host = 'http://csusm-cs-441-chc.appspot.com/apiv1';//general host name
     // var temp = localStorage.getItem('card1')
     radio = document.getElementsByName('options');
     input = document.getElementById('myinput');
@@ -172,7 +172,7 @@ function clearFunction(clicked){
 //SELECT CARD
 function selectCard(pressed){
     var page_index, button_num, drink_number, host, route, filter, image;
-    host = 'https://cors-anywhere.herokuapp.com/http://csusm-cs-441-chc.appspot.com/apiv1';//general host name
+    host = 'http://csusm-cs-441-chc.appspot.com/apiv1';//general host name
     route = '/recipes_drink/search?names=';
     page_index = parseInt(localStorage.getItem('page_index'));
     button_num = parseInt(pressed);
@@ -200,7 +200,7 @@ function selectCard(pressed){
         placeholder3.replaceChild(image,placeholder3.childNodes[0]);
         document.getElementById('name4').innerText = data.recipes[0].name;
         document.getElementById('tags4').innerText = tags;
-        $.getJSON('https://cors-anywhere.herokuapp.com/' + data.recipes[0].steps_url, function(data1){
+        $.getJSON(data.recipes[0].steps_url, function(data1){
             console.log(data1);
             length = data1.steps.length;
             steps = '';

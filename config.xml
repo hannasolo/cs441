@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.hannalynn.drungry" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<!--<widget id="com.hannalynn.drungry" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">-->
+    <widget id="com.hannalynn.drungry" version="1.2.3"
+            xmlns="http://www.w3.org/ns/widgets"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Fud</name>
     <description>
         A cocktail/meal recipe app.
@@ -17,6 +21,9 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <platform name="android">
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+            <application android:usesCleartextTraffic="true" />
+        </edit-config>
         <allow-intent href="market:*" />
         <icon src="res/icon.png" />
 <!--        <preference name="AndroidLaunchMode" value="singleTask" />-->
