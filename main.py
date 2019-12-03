@@ -246,7 +246,7 @@ def drink_search():
 
         json_response['results'] = len(rv)
 
-        return jsonify(json_response)
+        return jsonify(json_response), 200, {'Access-Control-Allow-Origin': '*'}
 
 
 # Food recipe Search
