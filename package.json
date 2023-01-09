@@ -23,7 +23,7 @@
     "cordova-plugin-inappbrowser": "3.1.0",
     "cordova-universal-links-plugin-fix": "1.2.1",
     "firebase": "^7.2.3",
-    "firebase-admin": "^8.6.0"
+    "firebase-admin": "^11.4.1"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
